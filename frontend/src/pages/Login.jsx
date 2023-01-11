@@ -6,7 +6,8 @@ import "./login.scss";
 
 function Login() {
   const { userInfo, setUserInfo } = useUser();
-  const [input, setInput] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   axios.defaults.withCredentials = true;
   const [error, setError] = useState();
 
@@ -46,18 +47,20 @@ function Login() {
       });
   };
 
-  const checkInput = (e) => {
-    setInput(e.target.value);
-    console.log(e.target.value);
+  const checkEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const checkPassword = (e) => {
+    setPassword(e.target.value);
   };
   return (
     <div className="login">
       <h2>login page</h2>
       <form className="login__form" onSubmit={logIn}>
         <input
-          onChange={checkInput}
+          onChange={checkEmail}
           className={
-            input.includes("@") ? "login__input--valid" : "login__input"
+            email.includes("@") ? "login__input--valid" : "login__input"
           }
           placeholder="Email"
           type="email"
@@ -65,8 +68,10 @@ function Login() {
           name="email"
         />
         <input
-          onChange={checkInput}
-          className={input.length < 8 ? "login__input" : "login__input--valid"}
+          onChange={checkPassword}
+          className={
+            password.length < 8 ? "login__input" : "login__input--valid"
+          }
           placeholder="Password"
           type="password"
           name="password"
