@@ -3,19 +3,9 @@
 /* eslint-disable react/prop-types */
 import "./CityChoiceResult.css";
 
-function CityChoiceResult({
-  allResult,
-  actualSearch,
-  setActualSearch,
-  setAllResult,
-}) {
+function CityChoiceResult({ allResult, actualSearch, handleResearch }) {
   const boldSearch = (result) =>
     result.toLowerCase().search(actualSearch.toLowerCase());
-
-  const handleResearch = (name) => {
-    setActualSearch(name);
-    setAllResult();
-  };
 
   return (
     <div className="CityChoiceResult">

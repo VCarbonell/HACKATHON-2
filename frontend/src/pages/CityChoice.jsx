@@ -6,12 +6,25 @@ import CityChoiceResult from "@components/CityChoiceResult";
 import api from "@services/api";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFilter } from "../contexts/filterContext";
 import "./CityChoice.css";
 
 function CityChoice() {
   const [allCity, setAllCity] = useState();
   const [allResult, setAllResult] = useState();
   const [actualSearch, setActualSearch] = useState();
+  const { filter, setFilter } = useFilter();
+  const navigate = useNavigate();
+
+  const handleResearch = (name) => {
+    setActualSearch(name);
+    setAllResult();
+    api
+      .get(`/city/${name}`)
+      .then((res) => setFilter({ ...filter, city: res.data[0].id }))
+      .catch((err) => console.error(err));
+  };
 
   const getCurrentPosition = () => {
     return new Promise((resolve, reject) => {
@@ -43,7 +56,7 @@ function CityChoice() {
                     "locality"
                   ) !== -1
                 ) {
-                  setActualSearch(
+                  handleResearch(
                     data.results[0].address_components[i].long_name
                   );
                 }
@@ -69,12 +82,17 @@ function CityChoice() {
     }
   };
 
+  const goToNext = () => {
+    navigate("/login");
+  };
+
   useEffect(() => {
     api
       .get("/city")
       .then((res) => setAllCity(res.data))
       .catch((err) => console.error(err));
   }, []);
+
   return (
     <div className="CityChoice">
       <input
@@ -89,11 +107,10 @@ function CityChoice() {
         <CityChoiceResult
           allResult={allResult}
           actualSearch={actualSearch}
-          setActualSearch={setActualSearch}
-          setAllResult={setAllResult}
+          handleResearch={handleResearch}
         />
       )}
-      <Button />
+      <Button value="NEXT" type="button" className="btn" handle={goToNext} />
     </div>
   );
 }
