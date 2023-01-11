@@ -12,6 +12,7 @@ import BookingCalendar from "@pages/BookingCalendar";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
+import BookingConfirmation from "@pages/BookingConfirmation";
 
 function App() {
   return (
@@ -22,11 +23,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/companylogin" element={<CompanyLogin />} />
         <Route path="/companysignup" element={<CompanySignUp />} />
-        <Route path="/calendar" element={<BookingCalendar />} />
       </Routes>
       <FilterProvider>
         <Routes>
           <Route path="/city" element={<CityChoice />} />
+          <Route path="/calendar" element={<BookingCalendar />} />
+          <Route path="/confirmation" element={<BookingConfirmation />} />
         </Routes>
       </FilterProvider>
       <Navbar />
