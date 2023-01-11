@@ -2,12 +2,13 @@ import React from "react";
 import "./button.scss";
 import arrowLeft from "@assets/icons/arrowleft.png";
 
-function Button({ value, className }) {
+function Button({ value, type, className }) {
   return (
-    <div className={`${className} btn`}>
-      {value}
+    <button type={type} className={className}>
       <img src={arrowLeft} alt="" />
-    </div>
+      <span>{value}</span>
+      <img src={arrowLeft} alt="" />
+    </button>
   );
 }
 

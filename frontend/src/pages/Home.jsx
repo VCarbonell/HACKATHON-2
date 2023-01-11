@@ -1,13 +1,19 @@
 import Navbar from "@components/Navbar";
 import React from "react";
 import Button from "@components/button";
+import { NavLink } from "react-router-dom";
 import "./home.scss";
+import CityChoice from "./CityChoice";
+import logo from "../assets/icons/logo.png";
 
 function Home() {
   return (
     <div className="home">
-      <Button value="GET STARTED" />
-      <Navbar />
+      <img className="home__logo" src={logo} alt="logo" />
+      <h1 className="home__title">go for a ride.</h1>
+      <NavLink to="/city">
+        <Button className="btn" type="button" value="GET STARTED" />
+      </NavLink>
     </div>
   );
 }

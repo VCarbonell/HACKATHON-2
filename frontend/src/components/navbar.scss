@@ -4,7 +4,7 @@
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 11vh;
+  height: 9vh;
   background-color: #fbfbfb;
   &__list {
     display: flex;
@@ -14,10 +14,10 @@
     align-items: center;
   }
   &__icons {
-    width: 10vw;
+    width: 8vw;
     height: auto;
   }
   .small img {
-    width: 7vw;
+    width: 5vw;
   }
 }
