@@ -1,10 +1,13 @@
 import CompanySignUp from "@pages/CompanySignUp";
 import CompanyLogin from "@pages/CompanyLogin";
+/* eslint-disable import/no-unresolved */
+import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
 
 function App() {
@@ -17,6 +20,11 @@ function App() {
         <Route path="/companylogin" element={<CompanyLogin />} />
         <Route path="/companysignup" element={<CompanySignUp />} />
       </Routes>
+      <FilterProvider>
+        <Routes>
+          <Route path="/city" element={<CityChoice />} />
+        </Routes>
+      </FilterProvider>
     </div>
   );
 }
