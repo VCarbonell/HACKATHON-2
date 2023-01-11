@@ -1,0 +1,14 @@
+@import "../App.css";
+
+.CityChoice {
+  width: 100vw;
+  height: 89vh;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+}
+
+.CityChoiceInput {
+  margin-top: 10vh;
+  height: 2vh;
+}
