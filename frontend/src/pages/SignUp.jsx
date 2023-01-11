@@ -2,6 +2,7 @@ import { React, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./signUp.scss";
 import axios from "axios";
+import Navbar from "@components/Navbar";
 
 function SignUp() {
   const [formData, setFormData] = useState({
