@@ -3,6 +3,7 @@ import axios from "axios";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
 import "./login.scss";
+import Navbar from "@components/Navbar";
 
 function Login() {
   const { userInfo, setUserInfo } = useUser();
@@ -59,9 +60,7 @@ function Login() {
       <form className="login__form" onSubmit={logIn}>
         <input
           onChange={checkEmail}
-          className={
-            email.includes("@") ? "login__input--valid" : "login__input"
-          }
+          className={email.includes("@") ? "login__input--valid" : "mainInput"}
           placeholder="Email"
           type="email"
           id="email"
@@ -69,9 +68,7 @@ function Login() {
         />
         <input
           onChange={checkPassword}
-          className={
-            password.length < 8 ? "login__input" : "login__input--valid"
-          }
+          className={password.length < 8 ? "mainInput" : "login__input--valid"}
           placeholder="Password"
           type="password"
           name="password"
@@ -93,6 +90,7 @@ function Login() {
           LOGIN
         </button>
       </form>
+      <Navbar />
     </div>
   );
 }
