@@ -9,7 +9,13 @@ function Calendrier() {
   return (
     <div className="app">
       <div className="calendar-container">
-        <Calendar onChange={setDate} value={date} selectRange />
+        <Calendar
+          onChange={setDate}
+          value={date}
+          selectRange={true}
+          minDate={new Date()}
+          maxDate={new Date(2023, 12, 31)}
+        />
       </div>
       {date.length > 0 ? (
         <p className="text-center">
