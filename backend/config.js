@@ -11,4 +11,17 @@ const connection = mysql.createConnection({
   database: process.env.DB_NAME,
 });
 
+connection.connect((err) => {
+  if (err) {
+    console.error(
+      "Warning:",
+      "Failed to get a DB connection.",
+      "Did you create a .env file with valid credentials?",
+      "Routes using models won't work as intended"
+    );
+  }
+  // eslint-disable-next-line no-restricted-syntax
+  console.log("Can reach database");
+});
+
 module.exports = connection;
