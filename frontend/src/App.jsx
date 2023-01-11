@@ -12,6 +12,7 @@ import BookingCalendar from "@pages/BookingCalendar";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
+import "./style.scss";
 import BookingConfirmation from "@pages/BookingConfirmation";
 
 function App() {
