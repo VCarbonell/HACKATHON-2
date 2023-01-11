@@ -122,7 +122,6 @@ function SignUp() {
           </Link>
         </span>
       </p>
-      <Navbar />
     </div>
   );
 }

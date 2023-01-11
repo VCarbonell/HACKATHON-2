@@ -13,7 +13,16 @@ const findOne = (id) => {
     .then(([res]) => res);
 };
 
+const findByName = (name) => {
+  return db
+    .promise()
+    .query("SELECT id FROM city WHERE name = ? ;", [name])
+    .then(([res]) => res)
+    .catch((err) => console.error(err));
+};
+
 module.exports = {
   findAll,
   findOne,
+  findByName,
 };
