@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import "./signUp.scss";
 import axios from "axios";
 
-function SignUp() {
+function CompanySignUp() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -37,7 +37,7 @@ function SignUp() {
     if (error === "") {
       axios
         .post(
-          "http://localhost:8000/api/users/newClient",
+          "http://localhost:8000/api/company/newCompany",
           {
             email: formData.email,
             password: formData.password,
@@ -46,7 +46,7 @@ function SignUp() {
         )
         .then((res) => {
           if (res.status === 201) {
-            navigate("/login");
+            navigate("/companylogin");
           }
         })
         .catch((err) => setError(err.response.data.error));
@@ -116,7 +116,7 @@ function SignUp() {
       <p className="">
         Already have an account?{" "}
         <span className="">
-          <Link to="/login" className="">
+          <Link to="/companylogin" className="">
             Login
           </Link>
         </span>
@@ -125,4 +125,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default CompanySignUp;

@@ -1,3 +1,5 @@
+import CompanySignUp from "@pages/CompanySignUp";
+import CompanyLogin from "@pages/CompanyLogin";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
@@ -12,6 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/companylogin" element={<CompanyLogin />} />
+        <Route path="/companysignup" element={<CompanySignUp />} />
       </Routes>
     </div>
   );
