@@ -1,9 +1,8 @@
-import Navbar from "@components/Navbar";
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import Button from "@components/button";
 import { NavLink } from "react-router-dom";
 import "./home.scss";
-import CityChoice from "./CityChoice";
 import logo from "../assets/icons/logo.png";
 
 function Home() {
