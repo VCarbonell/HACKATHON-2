@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap");
+
+$font: Poppins;
+$mainColor: #00a8e1;
+$black: #1e1e1e;
+$white: rgb(243, 243, 243);
+
 html,
 body,
 div,
@@ -130,4 +137,22 @@ button {
   cursor: pointer;
   width: 50px;
   height: 30px;
+}
+body {
+  background-color: $black;
+}
+
+.mainInput {
+  position: relative;
+  width: 80vw;
+  height: 2rem;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid $white;
+  outline: none;
+  color: $white;
+  background-color: $black;
+  &::placeholder {
+    color: $white;
+  }
 }
