@@ -12,14 +12,19 @@ const pool = mysql.createPool({
   database: DB_NAME,
 });
 
-pool.getConnection().catch(() => {
-  console.warn(
-    "Warning:",
-    "Failed to get a DB connection.",
-    "Did you create a .env file with valid credentials?",
-    "Routes using models won't work as intended"
-  );
-});
+pool
+  .getConnection()
+  .then(() => {
+    console.log("Can reach database");
+  })
+  .catch(() => {
+    console.warn(
+      "Warning:",
+      "Failed to get a DB connection.",
+      "Did you create a .env file with valid credentials?",
+      "Routes using models won't work as intended"
+    );
+  });
 
 const models = fs
   .readdirSync(__dirname)
