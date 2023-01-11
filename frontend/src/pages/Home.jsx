@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@components/button";
 import { NavLink } from "react-router-dom";
 import "./home.scss";

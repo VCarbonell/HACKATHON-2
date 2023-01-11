@@ -12,6 +12,7 @@ import BookingCalendar from "@pages/BookingCalendar";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
+import CarChoice from "@pages/CarChoice";
 import "./style.scss";
 import BookingConfirmation from "@pages/BookingConfirmation";
 
@@ -28,6 +29,7 @@ function App() {
       <FilterProvider>
         <Routes>
           <Route path="/city" element={<CityChoice />} />
+          <Route path="/carchoice" element={<CarChoice />} />
           <Route path="/calendar" element={<BookingCalendar />} />
           <Route path="/confirmation" element={<BookingConfirmation />} />
         </Routes>
