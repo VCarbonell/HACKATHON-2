@@ -6,12 +6,14 @@ import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
+import Test from "@pages/test";
 import Navbar from "@components/Navbar";
 import React from "react";
 import BookingCalendar from "@pages/BookingCalendar";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
+import "./style.scss";
 
 function App() {
   return (
