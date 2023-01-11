@@ -1,6 +1,7 @@
+/* eslint-disable import/order */
+/* eslint-disable import/no-unresolved */
 import CompanySignUp from "@pages/CompanySignUp";
 import CompanyLogin from "@pages/CompanyLogin";
-/* eslint-disable import/no-unresolved */
 import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
@@ -9,6 +10,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
+import Navbar from "@components/Navbar";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route path="/city" element={<CityChoice />} />
         </Routes>
       </FilterProvider>
+      <Navbar />
     </div>
   );
 }

@@ -2,7 +2,16 @@
 
 .CityChoiceResult {
   position: absolute;
-  top: 12.5vh;
+  top: 14vh;
+  width: 80vw;
+  height: fit-content;
+  max-height: 40vh;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  margin-top: 2vw;
+  overflow: scroll;
 }
 
 .CityChoiceOneResult {
@@ -10,9 +19,13 @@
 }
 
 .CityChoiceOneResult p {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 5.5vw;
   color: white;
+  opacity: 0.42;
 }
 
 #CityChoiceActualSearch {
-  color: red;
+  opacity: 1;
 }

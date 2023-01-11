@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import React from "react";
 import "./button.scss";
 import arrowLeft from "@assets/icons/arrowleft.png";
