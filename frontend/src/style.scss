@@ -3,7 +3,7 @@
 $font: Poppins;
 $mainColor: #00a8e1;
 $mainColorFade: #0a9ccca8;
-$black: #1e1e1e;
+$black: #0C0C0C;
 $white: rgb(243, 243, 243);
 
 html,
@@ -147,7 +147,7 @@ body {
   position: relative;
   width: 80vw;
   height: 2rem;
-  font-size: 1rem;
+  font-size: 5.5vw;
   border: none;
   border-bottom: 1px solid $white;
   outline: none;
