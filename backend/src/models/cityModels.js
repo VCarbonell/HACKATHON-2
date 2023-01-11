@@ -3,7 +3,13 @@ const db = require("../../config");
 const findAll = () => {
   return db
     .promise()
-    .query("SELECT * FROM city ;")
+    .query("SELECT * FROM city;")
+    .then(([res]) => res);
+};
+const findOne = (id) => {
+  return db
+    .promise()
+    .query("SELECT * from city WHERE id = ?", [id])
     .then(([res]) => res);
 };
 
@@ -17,5 +23,6 @@ const findByName = (name) => {
 
 module.exports = {
   findAll,
+  findOne,
   findByName,
 };

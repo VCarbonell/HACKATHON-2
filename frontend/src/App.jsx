@@ -8,6 +8,7 @@ import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
 import Navbar from "@components/Navbar";
 import React from "react";
+import BookingCalendar from "@pages/BookingCalendar";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/companylogin" element={<CompanyLogin />} />
         <Route path="/companysignup" element={<CompanySignUp />} />
+        <Route path="/calendar" element={<BookingCalendar />} />
       </Routes>
       <FilterProvider>
         <Routes>

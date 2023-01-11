@@ -18,10 +18,10 @@ companyRouter.get("/authCheck", authorization, (req, res) => {
   const email = req.userEmail;
   res.status(200).send(email);
 });
-companyRouter.get("/", authorization, getCompanyById); 
+companyRouter.get("/", authorization, getCompanyById);
 companyRouter.post("/login", credentialsCheck, companyLogin);
 companyRouter.get("/logout", authorization, companyLogout);
 companyRouter.get("/roleCheck", authorization, getRoleByCompany);
-companyRouter.put("/update",  updateCompany);
+companyRouter.put("/update", updateCompany);
 
 module.exports = companyRouter;
