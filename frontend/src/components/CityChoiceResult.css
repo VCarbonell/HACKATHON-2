@@ -1,0 +1,18 @@
+@import "../App.css";
+
+.CityChoiceResult {
+  position: absolute;
+  top: 12.5vh;
+}
+
+.CityChoiceOneResult {
+  display: flex;
+}
+
+.CityChoiceOneResult p {
+  color: white;
+}
+
+#CityChoiceActualSearch {
+  color: red;
+}

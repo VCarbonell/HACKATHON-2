@@ -5,7 +5,8 @@
   height: 89vh;
   background-color: var(--black);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .CityChoiceInput {
