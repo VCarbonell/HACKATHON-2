@@ -5,6 +5,7 @@ import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
+import Navbar from "@components/Navbar";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/city" element={<CityChoice />} />
         </Routes>
       </FilterProvider>
+      <Navbar />
     </div>
   );
 }
