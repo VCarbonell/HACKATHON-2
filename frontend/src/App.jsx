@@ -1,3 +1,5 @@
+import CompanySignUp from "@pages/CompanySignUp";
+import CompanyLogin from "@pages/CompanyLogin";
 /* eslint-disable import/no-unresolved */
 import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
@@ -15,6 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/companylogin" element={<CompanyLogin />} />
+        <Route path="/companysignup" element={<CompanySignUp />} />
       </Routes>
       <FilterProvider>
         <Routes>
