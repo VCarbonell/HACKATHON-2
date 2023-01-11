@@ -1,0 +1,25 @@
+@import "../style.scss";
+
+.filterNav {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 10vh;
+  background-color: $black;
+  color: $white;
+  &__list {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  span {
+    color: $white;
+    font-family: $font;
+    font-size: 1.2rem;
+  }
+  img {
+    width: 10vw;
+    height: auto;
+  }
+}

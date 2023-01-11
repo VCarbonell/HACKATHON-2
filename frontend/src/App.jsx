@@ -11,6 +11,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
+import CarChoice from "@pages/CarChoice";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <FilterProvider>
         <Routes>
           <Route path="/city" element={<CityChoice />} />
+          <Route path="/carchoice" element={<CarChoice />} />
         </Routes>
       </FilterProvider>
       <Navbar />
