@@ -1,6 +1,6 @@
 import Home from "@pages/Home";
 import Login from "@pages/Login";
-import SignIn from "@pages/SignIn";
+import SignUp from "@pages/SignUp";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </div>
