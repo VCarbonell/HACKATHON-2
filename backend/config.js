@@ -21,7 +21,7 @@ connection.connect((err) => {
     );
   }
   // eslint-disable-next-line no-restricted-syntax
-  console.log("Can reach database");
+  console.log("We gunna crush them !!! GOOOO");
 });
 
 module.exports = connection;
