@@ -1,9 +1,9 @@
 const express = require("express");
+
 const cityRouter = express.Router();
 
-const {
-  } = require("../controllers/cityController");
+const cityController = require("../controllers/cityController");
 
-cityRouter.get("/city", )
+cityRouter.get("/city", cityController.getCity);
 
 module.exports = cityRouter;
