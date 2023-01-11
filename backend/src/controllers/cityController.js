@@ -1,18 +1,12 @@
-const cityModel = require("../models/cityModelsde");
-
+const cityModels = require("../models/cityModels");
 
 const cityController = {
-
-    getCity: (req, res, next) => {
-        artModel
-          .findAll()
-          .then((city) => res.send(city))
-          .catch((err) => next(err));
-      },
-
-
-
-
-}
+  getCity: (req, res, next) => {
+    cityModels
+      .findAll()
+      .then((city) => res.send(city))
+      .catch((err) => next(err));
+  },
+};
 
 module.exports = cityController;
