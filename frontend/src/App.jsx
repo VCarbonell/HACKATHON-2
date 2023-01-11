@@ -6,7 +6,6 @@ import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
-import Test from "@pages/test";
 import Navbar from "@components/Navbar";
 import React from "react";
 import BookingCalendar from "@pages/BookingCalendar";
@@ -14,6 +13,7 @@ import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
 import "./App.css";
 import "./style.scss";
+import BookingConfirmation from "@pages/BookingConfirmation";
 
 function App() {
   return (
@@ -24,11 +24,12 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/companylogin" element={<CompanyLogin />} />
         <Route path="/companysignup" element={<CompanySignUp />} />
-        <Route path="/calendar" element={<BookingCalendar />} />
       </Routes>
       <FilterProvider>
         <Routes>
           <Route path="/city" element={<CityChoice />} />
+          <Route path="/calendar" element={<BookingCalendar />} />
+          <Route path="/confirmation" element={<BookingConfirmation />} />
         </Routes>
       </FilterProvider>
       <Navbar />
