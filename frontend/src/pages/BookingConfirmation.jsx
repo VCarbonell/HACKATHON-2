@@ -9,25 +9,28 @@ import BookingElement from "@components/BookingElement";
 import PaymentCard from "@components/PaymentCard";
 import Button from "@components/Button";
 import { useFilter } from "../contexts/filterContext";
+import { useUser } from '../contexts/userContext';
 import "./BookingConfirmation.css";
 
 function BookingConfirmation() {
+  const {userInfo} = useUser();
   const { filter, actualCar } = useFilter();
   const navigate = useNavigate();
   const [error, setError] = useState();
   const [carPic, setcarPic] = useState();
   const [day, setDay] = useState();
   const handleBook = (event) => {
+    console.log(userInfo)
     api
       .post("booking/new", {
-        email: "anitadarecka@gmail.com",
-        company: "SNCF",
-        car: "Volvo XC90",
-        start_date: "2023-02-12",
-        end_date: "2023-02-17",
-        city: "Bordeaux",
-        car_id: 2,
-        user_id: 3,
+        email: userInfo.email,
+        company: actualCar.company,
+        car: actualCar.model,
+        start_date: filter.start_date,
+        end_date: filter.end_date,
+        city: actualCar.name,
+        car_id: actualCar.id,
+        user_id: userInfo.id,
       })
       .then((res) => {
         if (res.status === 201) {
