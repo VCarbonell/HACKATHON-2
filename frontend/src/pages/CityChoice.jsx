@@ -16,7 +16,6 @@ function CityChoice() {
   const [actualSearch, setActualSearch] = useState();
   const { filter, setFilter } = useFilter();
   const navigate = useNavigate();
-
   const handleResearch = (name) => {
     setActualSearch(name);
     setAllResult();

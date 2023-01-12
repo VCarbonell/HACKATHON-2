@@ -5,6 +5,7 @@ import { useUser } from "../contexts/userContext";
 import "./login.scss";
 import logo from "../assets/icons/logo.png";
 import Button from "@components/Button";
+import api from "@services/api";
 
 function Login() {
   const { userInfo, setUserInfo } = useUser();
@@ -22,8 +23,8 @@ function Login() {
     const formDataObj = {};
     formData.forEach((value, key) => (formDataObj[key] = value));
 
-    axios
-      .post("http://localhost:8000/api/users/login", {
+    api
+      .post("/users/login", {
         email: formDataObj.email,
         password: formDataObj.password,
       })
