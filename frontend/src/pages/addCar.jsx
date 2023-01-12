@@ -30,12 +30,8 @@ function AddCar() {
       .then((response) => setCarMakes(response.data));
   };
   const handleSubmit = (e) => {
-
-    
     e.preventDefault();
-
   };
-
 
   useEffect(() => {
     fetchMakes();
@@ -43,7 +39,11 @@ function AddCar() {
   return (
     <div className="addCar">
       <Header value="Add a vehicule" back />
-      <form onSubmit={handleSubmit} encType="multipart/form-data" className="addCar__form">
+      <form
+        onSubmit={handleSubmit}
+        encType="multipart/form-data"
+        className="addCar__form"
+      >
         <div className="addCar__photoWrap">
           <img className="addCar__icon" src={addPhotoIcon} alt="" />
           <input

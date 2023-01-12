@@ -1,5 +1,33 @@
 @import "../style.scss";
-
+.login__error {
+  color: $white;
+  width: 100%;
+  white-space: nowrap;
+  padding: 0;
+  &--link {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+.login__logoOrange {
+  position: absolute;
+  z-index: 100;
+  width: 50%;
+  height: auto;
+  top: 10vh;
+}
+.login__form {
+  .btn {
+    bottom: 2%;
+    background-color: $companyColor;
+    img:first-of-type {
+      left: -15%;
+    }
+    &:hover img:first-of-type {
+      left: 1rem;
+    }
+  }
+}
 .login__switch {
   position: relative;
   display: flex;

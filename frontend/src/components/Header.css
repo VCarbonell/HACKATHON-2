@@ -10,7 +10,8 @@
   align-items: flex-end;
   background-color: var(--black);
   margin-bottom: 7vh;
-  z-index: 100;
+  background-color: var(--black);
+  z-index: 20;
 }
 
 .Header div {

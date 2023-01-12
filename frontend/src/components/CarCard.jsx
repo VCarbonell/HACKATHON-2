@@ -1,35 +1,27 @@
-import React, { useEffect, useState } from "react";
-import "./carCardCompany.scss";
-import carphoto from "../assets/photo/vehicules/Tesla_Model_Y.png";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable react/prop-types */
+import React, { useState } from "react";
+import "./carCard.scss";
+import carIcon from "../assets/icons/car.png";
 import companyIcon from "../assets/icons/companyIcon.png";
-
 import Button from "./Button";
 
-function CarCard({ carPic, car }) {
+function CarCard({ car, carPic }) {
   const [big, setBig] = useState(false);
-  const [isAvailable, setIsAvailable] = useState(true);
-
-  const turnAvailable = () => {
-    setIsAvailable(!isAvailable);
-  };
   const expend = () => {
     setBig(!big);
   };
   return (
-    <div
-      onClick={expend}
-      style={{ opacity: !isAvailable && ".4" }}
-      className={big ? "carCard--big" : "carCard"}
-    >
+    <div onClick={expend} className={big ? "carCard--big" : "carCard"}>
       <img
         className={big ? "carCard--big__bg-img" : "carCard__bg-img"}
         src={carPic}
-        style={{ transform: !isAvailable && "translateX(250px)" }}
         alt=""
       />
       <div className="carCard__make">
-        <img src={carphoto} alt="" />
-        <span>ford focus</span>
+        <img src={carIcon} alt="" />
+        <span>{car.model}</span>
       </div>
       <div className="carCard__price">
         <span>{car.price}</span>/day
@@ -37,11 +29,7 @@ function CarCard({ carPic, car }) {
 
       <div className={big ? "carCard--big__company" : "carCard__company"}>
         <img src={companyIcon} alt="" />
-
-        <label className="carCard__switch">
-          <input onClick={turnAvailable} type="checkbox" />
-          <span className="carCard__slider" />
-        </label>
+        <span>{car.company}</span>
       </div>
       <div className="carCard__description">
         <h3 className="carCard__model">{car.model}</h3>

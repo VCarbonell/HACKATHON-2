@@ -90,7 +90,6 @@ function CityChoice() {
       .then((res) => setAllCity(res.data))
       .catch((err) => console.error(err));
   }, []);
-  console.log(filter);
 
   return (
     <div className="CityChoice">

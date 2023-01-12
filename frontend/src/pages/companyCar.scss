@@ -1,11 +1,10 @@
-@import '../style.scss';
+@import "../style.scss";
 
-.companyCar{
+.companyCar {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: end;
   width: 100%;
-  
 }

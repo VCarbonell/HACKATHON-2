@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
-import "./companyProfil.scss";
+import "./companyLogin.scss";
 import Button from "@components/Button";
-import Header from "@components/Header";
+import logo from "@assets/icons/logo_orange.png";
 
 function CompanyLogin() {
   const { setUserInfo } = useUser();
@@ -57,15 +57,8 @@ function CompanyLogin() {
   };
   return (
     <div className="login">
-      <Header value="Login Pro" />
+      <img className="login__logoOrange" src={logo} alt="" />
       <form className="login__form" onSubmit={logIn}>
-        <input
-          className="mainInput"
-          placeholder="Company name"
-          type="text"
-          id="text"
-          name="text"
-        />
         <input
           onChange={checkEmail}
           className="mainInput"
@@ -87,30 +80,26 @@ function CompanyLogin() {
         ) : error === 401 ? (
           <span className="login__error">
             We don't know each others yet, please{" "}
-            <NavLink to="/signin">
+            <NavLink to="/signup">
               <p className="login__error--link login__error--link">Sign up</p>
             </NavLink>
           </span>
         ) : undefined}
         {/* */}
-        <div className="login__switchWrap">
-          <label className="login__switch">
-            <input
-              name="employee_only"
-              type="checkbox"
-              className="login__radio"
-            />
-            <span className="login__slider" />
-          </label>
-          <span className="login__employees">
-            Allow only your employees to rent your cars.
-          </span>
-        </div>
 
         {email.includes("@") && password.length > 8 ? (
           <Button className="btn" type="submit" value="login" />
         ) : (
-          <button disabled className="btn--disabled">
+          <button
+            style={{
+              backgroundColor:
+                !email.includes("@") && !password.length > 8
+                  ? "#ff9900"
+                  : "#fdba56",
+            }}
+            disabled
+            className="btn--disabled"
+          >
             Login
           </button>
         )}

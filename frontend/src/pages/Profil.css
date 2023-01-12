@@ -1,0 +1,33 @@
+@import "../App.css";
+
+.Profil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ProfilInputContainer {
+  margin-top: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ProfilInput {
+  display: flex;
+}
+
+.ProfilInput img {
+  position: absolute;
+  width: 6vw;
+  transform: translate(75vw, 4vh);
+}
+
+.Profil .btn {
+  bottom: 35%;
+}
+
+#LogoutBtn {
+  bottom: 17.5%;
+  background-color: #333333;
+}
