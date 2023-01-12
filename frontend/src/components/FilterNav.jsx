@@ -10,10 +10,35 @@ function FilterNav() {
   const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [range, setRange] = useState("20");
-
-  const getPrice = (e) => {
-    setRange(e.target.value);
+  const [formData, setFormData] = useState({
+    type: "",
+    price: "",
+    fuel: "",
+    seats: "",
+  });
+  const test = (e) => {
+    console.log(e.target.name);
   };
+  const handleChange = (e) => {
+    setFormData((prevFormData) => {
+      setRange(e.target.value);
+      return {
+        ...prevFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+
+  const handClick = (e) => {
+    setFormData((prevFormData) => {
+      setRange(e.target.value);
+      return {
+        ...prevFormData,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+
   const openFilter = () => {
     const openTl = gsap.timeline();
     setIsFilterOpen(!isFilterOpen);
@@ -163,7 +188,7 @@ function FilterNav() {
         <div className="filterNav__price">
           <span className="filterNav__subTitle">{range}$/day</span>
           <input
-            onChange={getPrice}
+            onChange={handleChange}
             className="range"
             value={range}
             type="range"
@@ -177,19 +202,35 @@ function FilterNav() {
         <div className="filterNav__fuel">
           <span className="filterNav__subTitle">Fuel</span>
           <div className="filterNav__wrap">
-            <button className="filterNav__btn">gasoline</button>
-            <button className="filterNav__btn">electric</button>
-            <button className="filterNav__btn">Diesel</button>
+            <button onClick={test} name="fuel" className="filterNav__btn">
+              gasoline
+            </button>
+            <button name="fuel" className="filterNav__btn">
+              electric
+            </button>
+            <button name="fuel" className="filterNav__btn">
+              Diesel
+            </button>
           </div>
         </div>
         <div className="filterNav__seats">
           <span className="filterNav__subTitle">seats</span>
           <div className="filterNav__wrap">
-            <button className="filterNav__btn">4</button>
-            <button className="filterNav__btn">5</button>
-            <button className="filterNav__btn">6</button>
-            <button className="filterNav__btn">7</button>
-            <button className="filterNav__btn">8</button>
+            <button name="seats" className="filterNav__btn">
+              4
+            </button>
+            <button name="seats" className="filterNav__btn">
+              5
+            </button>
+            <button name="seats" className="filterNav__btn">
+              6
+            </button>
+            <button name="seats" className="filterNav__btn">
+              7
+            </button>
+            <button name="seats" className="filterNav__btn">
+              8
+            </button>
           </div>
         </div>
         <Button value="Filter" className="btn" type="button" />
