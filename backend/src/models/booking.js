@@ -11,7 +11,8 @@ const findBookingByUser = (id) => {
   return db
     .promise()
     .query(
-      "SELECT * FROM booking join car on car.id = booking.car_id where user_id = ?",
+      "SELECT * FROM booking join car on car.id = booking.car_id JOIN company ON company.id=car.company_id where user_id = ?",
+
       [Number(id)]
     )
     .then(([res]) => res);

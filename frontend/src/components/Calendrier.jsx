@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Calendar from "react-calendar";
 import { useFilter } from "../contexts/filterContext";
@@ -12,6 +13,7 @@ function Calendrier() {
   const [rangeTow, setRangeTow] = useState("15");
   const [date, setDate] = useState();
   const { filter, setFilter } = useFilter();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setRange(e.target.value);
@@ -23,9 +25,10 @@ function Calendrier() {
   const handleDateSubmit = () => {
     setFilter({
       ...filter,
-      start_date: date[0].toISOString(),
-      end_date: date[1].toISOString(),
+      start_date: date[0].toISOString().split("T")[0],
+      end_date: date[1].toISOString().split("T")[0],
     });
+    navigate("/carchoice");
   };
   return (
     <div className="calendar">
@@ -40,7 +43,7 @@ function Calendrier() {
           locale="en-GB"
         />
       </div>
-      <div className="border"></div>
+      <div className="border" />
       <div className="btnheure">
         <div className="valeur">
           <img className="imgbtnclock" src={timer} alt="zz" />

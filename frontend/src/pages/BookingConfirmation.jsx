@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable import/no-unresolved */
 import allCarPicure from "@services/allCarPicture";
 import api from "@services/api";
@@ -11,13 +12,11 @@ import { useFilter } from "../contexts/filterContext";
 import "./BookingConfirmation.css";
 
 function BookingConfirmation() {
-  const { filter, setFilter } = useFilter();
+  const { filter, actualCar } = useFilter();
   const navigate = useNavigate();
   const [error, setError] = useState();
-  const [fakeCar, setFakeCar] = useState();
-  const [fakePic, setFakePic] = useState();
+  const [carPic, setcarPic] = useState();
   const [day, setDay] = useState();
-
   const handleBook = (event) => {
     api
       .post("booking/new", {
@@ -45,19 +44,16 @@ function BookingConfirmation() {
   };
 
   useEffect(() => {
-    api
-      .get("/car")
-      .then((res) => setFakeCar(res.data[0]))
-      .catch((err) => console.error(err));
-  }, []);
-
-  useEffect(() => {
-    if (fakeCar) {
-      const [myCar] = allCarPicure.filter((pic) => pic.name === fakeCar.model);
-      setFakePic(myCar.src);
+    if (actualCar) {
+      const [myCar] = allCarPicure.filter(
+        (pic) => pic.name === actualCar.model
+      );
+      setcarPic(myCar.src);
     }
-    setDay(7);
-  }, [fakeCar]);
+    const dayStart = Number(filter.start_date.slice(8));
+    const dayEnd = Number(filter.end_date.slice(8));
+    setDay(dayEnd - dayStart);
+  }, [actualCar]);
 
   return (
     <div className="BookingConfirmation">
@@ -72,14 +68,14 @@ function BookingConfirmation() {
         cars.
       </p>
       <BookingElement value="CHECK AND BOOK">
-        {fakeCar && (
+        {actualCar && (
           <div className="Check">
             <div className="CheckCarInfo">
-              <h1>{fakeCar.model}</h1>
-              <p>Collect and return to this agency : {fakeCar.name}</p>
+              <h1>{actualCar.model}</h1>
+              <p>Collect and return to this agency : {actualCar.name}</p>
             </div>
             <div className="CheckCarImg">
-              {fakePic && <img src={fakePic} alt="Car" />}
+              {carPic && <img src={carPic} alt="Car" />}
             </div>
           </div>
         )}
@@ -92,10 +88,10 @@ function BookingConfirmation() {
         </ul>
       </BookingElement>
       <BookingElement value="RENTAL PERIOD">
-        {fakeCar && (
+        {actualCar && (
           <div className="Rental">
-            <p>Rental duration {`(${day} x ${fakeCar.price})`}</p>
-            <p>{day * fakeCar.price} €</p>
+            <p>Rental duration {`(${day} x ${actualCar.price})`}</p>
+            <p>{day * actualCar.price} €</p>
           </div>
         )}
       </BookingElement>
@@ -120,10 +116,10 @@ function BookingConfirmation() {
         </div>
       </BookingElement>
       <BookingElement value="TOTAL">
-        {fakeCar && (
+        {actualCar && (
           <div className="Total">
             <div>
-              <h1>{day * fakeCar.price + 9.41 + 5.74} €</h1>
+              <h1 id="TotalPrice">{day * actualCar.price + 9.41 + 5.74} €</h1>
               <p>Taxes included</p>
             </div>
           </div>

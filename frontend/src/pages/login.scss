@@ -6,7 +6,7 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  background-color: $black;
   &__logo {
     position: fixed;
     top: 10vh;
@@ -19,13 +19,14 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    margin-top: 30vh;
     height: 100%;
     .btn {
       position: absolute;
-      bottom: 15%;
+      bottom: 72.5%;
       left: 50%;
+      width: 100%;
       transform: translateX(-50%);
       background-color: $mainColor;
       &:hover img {
@@ -40,8 +41,8 @@
     }
     .btn--disabled {
       position: absolute;
-      bottom: 15%;
-      width: 80%;
+      bottom: 72.5%;
+      width: 100%;
       height: 6vh;
       border-radius: 10rem;
       display: flex;
@@ -58,4 +59,21 @@
       }
     }
   }
+}
+
+.LoginNoAccountContainer {
+  position: absolute;
+  bottom: 43vh;
+  display: flex;
+  gap: 2vw;
+}
+
+.LoginNoAccount {
+  color: white;
+  font-family: $font;
+  font-size: 3.5vw;
+}
+
+.LoginNoAccountBlue {
+  color: $mainColor;
 }

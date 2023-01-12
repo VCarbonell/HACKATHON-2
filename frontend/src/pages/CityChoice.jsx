@@ -3,6 +3,7 @@
 /* eslint-disable import/no-unresolved */
 import Button from "@components/Button";
 import CityChoiceResult from "@components/CityChoiceResult";
+import Header from "@components/Header";
 import api from "@services/api";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -81,7 +82,7 @@ function CityChoice() {
   };
 
   const goToNext = () => {
-    navigate("/carchoice");
+    navigate("/calendar");
   };
 
   useEffect(() => {
@@ -93,6 +94,13 @@ function CityChoice() {
 
   return (
     <div className="CityChoice">
+      <Header value="Choose your city" />
+      <div className="Explications">
+        <p className="ExplicationsQuestion">What is Prime Ride ?</p>
+        <p className="Explication">
+          Prime Ride allows you to rent company cars at competitive prices.
+        </p>
+      </div>
       <input
         type="text"
         className="mainInput CityChoiceInput"
