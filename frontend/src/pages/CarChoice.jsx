@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import CarCard from "@components/carCard";
 import FilterNav from "@components/FilterNav";
 import React from "react";

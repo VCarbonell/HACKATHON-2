@@ -1,0 +1,123 @@
+@import "../App.css";
+
+.BookingConfirmation {
+  margin-bottom: 20vh;
+  overflow-x: hidden;
+}
+
+.BookingConfirmation p, h1, li {
+  color: white;
+  font-family: var(--font);
+}
+
+#BookingSelection {
+  font-size: 4vw;
+}
+
+#BookingCardInfo {
+  color: white;
+  font-family: var(--font);
+  font-size: 3.25vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  text-align: justify;
+  margin-top: 3vh;
+}
+
+.Check {
+  display: flex;
+}
+
+.CheckCarInfo {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  font-size: 3.25vw;
+}
+
+.CheckCarInfo h1 {
+  font-size: 5vw;
+  margin-bottom: 3vw;
+}
+
+.CheckCarImg {
+  position: relative;
+  padding-left: 2vw;
+  right: -1vw;
+  background-color: white;
+  border-radius: 2vw 0 0 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.CheckCarImg img {
+  width: 50vw;
+}
+
+.Offer li {
+  list-style:disc;
+  margin-left: 6vw;
+  margin-bottom: 1.5vw;
+  font-size: 3.25vw;
+}
+
+.Rental, .Protections {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 3.25vw;
+  width: 75vw;
+}
+
+.ProtectionsInstructions {
+  width: 60vw;
+}
+
+.Costs {
+  display: flex;
+  flex-direction: column;
+  font-size: 3.25vw;
+  gap: 1.5vw;
+}
+
+.Costs div {
+  display: flex;
+  justify-content: space-between;
+  width: 75vw;
+}
+
+.Total {
+  display: flex;
+  justify-content: flex-end;
+  width: 75vw;
+  text-align: right;
+}
+
+.Total div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+}
+
+.Total p {
+  font-size: 3.25vw;
+}
+
+.Total h1 {
+  font-size: 5vw;
+}
+
+.AcceptConditions, .Avertissements {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  font-size: 3.25vw;
+  margin-top: 4vh;
+}
+
+.BookingConfirmation .btn {
+  position: relative;
+  margin-top: 7vh;
+  margin-left: 10vw;
+  margin-bottom: 5vh;
+}

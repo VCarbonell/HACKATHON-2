@@ -1,0 +1,33 @@
+@import "../App.css";
+
+.SignUp * {
+  color: white;
+}
+
+.SignUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SignUpLogo {
+  width: 51vw;
+  margin-top: 7.5vh;
+  margin-bottom: 6.5vh;
+}
+
+.SignUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5vw;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  font-size: 5vw;
+  font-family: var(--font);
+  font-weight: 400;
+}
+
+.SignUpForm .btn {
+  position: relative;
+}
