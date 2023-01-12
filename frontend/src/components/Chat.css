@@ -15,7 +15,6 @@
   position: absolute;
   top: 10px;
   text-align: center;
-  border: 1px solid white;
   width: 100%;
 }
 .chat__content { 
@@ -24,15 +23,14 @@
   height: 90%;
   align-items: center;
   justify-content: flex-end;
-  border: 1px solid white;
 }
 
 .chat__body {
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   width: 90%;
   gap: 10px;
-  border: 1px solid white;
 }
 
 .message {
@@ -50,16 +48,16 @@
 
 #me .message__container {
       display: flex;
-      width: 80%;
+      width: 100%;
       justify-content: flex-end !important;
-      background-color: #00a8e1;
       border-radius: 10px;
       font-size: 0.8rem;
 }
 
 #me .message__content {
   display: flex;
-  width: 100%;
+  width: 80%;
+  background-color: #00a8e1;
   padding: 10px;
   justify-content: flex-end !important;
   border-radius: 10px;
