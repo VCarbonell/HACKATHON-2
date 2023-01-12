@@ -1,6 +1,7 @@
 @import "../App.css";
 
 .BookingConfirmation {
+  margin-top: 12.5vh;
   margin-bottom: 20vh;
   overflow-x: hidden;
 }

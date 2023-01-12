@@ -22,7 +22,7 @@ const carController = {
 
     if (req.query.type != null) {
       where.push({
-        column: "type_id",
+        column: "type_name",
         value: req.query.type,
         operator: "=",
       });

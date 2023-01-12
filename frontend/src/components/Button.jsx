@@ -5,9 +5,9 @@ import React from "react";
 import "./button.scss";
 import arrowLeft from "@assets/icons/arrowleft.png";
 
-function Button({ value, type, className, handle }) {
+function Button({ value, type, className, id, handle }) {
   return (
-    <button type={type} className={className} onClick={handle}>
+    <button type={type} className={className} id={id} onClick={handle}>
       <img src={arrowLeft} alt="" />
       <span>{value}</span>
       <img src={arrowLeft} alt="" />

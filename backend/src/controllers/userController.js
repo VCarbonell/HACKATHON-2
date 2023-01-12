@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const userModel = require("../models/users");
 const { passwordHash, passwordVerify } = require("../helpers/password");
 const { jwtSign } = require("../helpers/jwt");
@@ -96,7 +97,14 @@ const userController = {
         if (!user) {
           res.status(401).send({ error: "Invalid email." });
         } else {
-          const { id, password: hash } = user;
+          const {
+            id,
+            firstname,
+            lastname,
+            adress,
+            licence_number,
+            password: hash,
+          } = user;
           if (await passwordVerify(hash, password)) {
             const token = jwtSign(
               {
@@ -113,7 +121,14 @@ const userController = {
                 secure: false,
               })
               .status(200)
-              .send({ id, email });
+              .send({
+                id,
+                firstname,
+                lastname,
+                email,
+                licence_number,
+                adress,
+              });
           } else {
             res.status(401).send({ error: "Invalid password." });
           }

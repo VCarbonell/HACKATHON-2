@@ -9,6 +9,8 @@
   display: flex;
   align-items: flex-end;
   margin-bottom: 7vh;
+  background-color: var(--black);
+  z-index: 20;
 }
 
 .Header div {

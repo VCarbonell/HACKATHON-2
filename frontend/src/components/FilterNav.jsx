@@ -1,3 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable react/button-has-type */
 import React, { useState } from "react";
 import "./filterNav.scss";
 import { useNavigate } from "react-router-dom";
@@ -32,7 +36,7 @@ function FilterNav() {
       };
     });
   };
-
+0
   const handleClick = (e) => {
     setFormData((prevFormData) => {
       return {
@@ -41,9 +45,7 @@ function FilterNav() {
       };
     });
   };
-  const test = () => {
-    console.log(formData);
-  };
+
   const openFilter = () => {
     const openTl = gsap.timeline();
     setIsFilterOpen(!isFilterOpen);
