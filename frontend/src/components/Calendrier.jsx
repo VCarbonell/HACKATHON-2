@@ -1,16 +1,35 @@
 import { useState } from "react";
 import Calendar from "react-calendar";
+import { useFilter } from "../contexts/filterContext";
 import "react-calendar/dist/Calendar.css";
 import "./Calendrier.scss";
-import Singlerange from "./SingleRange";
+import Header from "./Header";
+import timer from "../assets/icons/timer1.png";
+import Button from "./Button";
 
 function Calendrier() {
-  const [date, setDate] = useState(new Date());
+  const [range, setRange] = useState("15");
+  const [rangeTow, setRangeTow] = useState("15");
+  const [date, setDate] = useState();
+  const { filter, setFilter } = useFilter();
+
+  const handleChange = (e) => {
+    setRange(e.target.value);
+  };
+  const handleChangeTow = (e) => {
+    setRangeTow(e.target.value);
+  };
+
+  const handleDateSubmit = () => {
+    setFilter({
+      ...filter,
+      start_date: date[0].toISOString(),
+      end_date: date[1].toISOString(),
+    });
+  };
   return (
     <div className="calendar">
-      <div className="title">
-        <h1>CHOOSE YOUR DATES</h1>
-      </div>
+      <Header value="Choose your dates" back="true" />
       <div className="calendar-container">
         <Calendar
           onChange={setDate}
@@ -18,7 +37,45 @@ function Calendrier() {
           selectRange
           minDate={new Date()}
           minDetail="month"
+          locale="en-GB"
+
         />
+      </div>
+      <div className="border"></div>
+      <div className="btnheure">
+        <div className="valeur">
+          <img className="imgbtnclock" src={timer} alt="zz" />
+          Start at {range}h am/pm
+        </div>
+        <input
+          onChange={handleChange}
+          className="range"
+          value={range}
+          type="range"
+          min="7"
+          max="23"
+          step="1"
+          name="time"
+          id="time"
+        />
+        <div className="valeur">
+          <img className="imgbtnclock" src={timer} alt="zz" />
+          End at {rangeTow}h am/pm
+        </div>
+        <input
+          onChange={handleChangeTow}
+          className="range"
+          value={rangeTow}
+          type="range"
+          min="7"
+          max="23"
+          step="1"
+          name="time"
+          id="time"
+        />
+      </div>
+      <div className="btnnext">
+        <Button value="NEXT" className="btn" handle={handleDateSubmit} />
       </div>
     </div>
   );

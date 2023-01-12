@@ -8,10 +8,10 @@ const cityController = {
       .catch((err) => next(err));
   },
 
-  getOneCity: (req, res, next) => {
-    const { id } = req.params;
+  getCityByName: (req, res, next) => {
+    const { name } = req.params;
     cityModels
-      .findOne(id)
+      .findByName(name)
       .then((city) => res.send(city))
       .catch((err) => next(err));
   },

@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,800;1,500&display=swap");
+$font: Poppins;
+$mainColor: #00a8e1;
+$mainColorFade: #0a9ccca8;
+$filterBtn: #333333;
+$filterBtnHover: #4f4f4f;
+$black: #0c0c0c;
+$white: rgb(243, 243, 243);
+$companyColor: #ff9900;
+$companycolorFade: #fdba56;
+
 html,
 body,
 div,
@@ -130,4 +141,23 @@ button {
   cursor: pointer;
   width: 50px;
   height: 30px;
+}
+body {
+  background-color: $black;
+}
+
+.mainInput {
+  position: relative;
+  width: 80vw;
+  height: 2rem;
+  font-size: 5vw;
+  border: none;
+  border-bottom: 1px solid $white;
+  outline: none;
+  color: $white;
+  background-color: $black;
+  padding-top: 2rem;
+  &::placeholder {
+    color: $white;
+  }
 }

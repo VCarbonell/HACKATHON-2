@@ -3,6 +3,9 @@ import axios from "axios";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
 import "./login.scss";
+import logo from "../assets/icons/logo.png";
+import Button from "@components/Button";
+import api from "@services/api";
 
 function Login() {
   const { userInfo, setUserInfo } = useUser();
@@ -20,8 +23,8 @@ function Login() {
     const formDataObj = {};
     formData.forEach((value, key) => (formDataObj[key] = value));
 
-    axios
-      .post("http://localhost:8000/api/users/login", {
+    api
+      .post("/users/login", {
         email: formDataObj.email,
         password: formDataObj.password,
       })
@@ -55,13 +58,11 @@ function Login() {
   };
   return (
     <div className="login">
-      <h2>login page</h2>
+      <img className="login__logo" src={logo} alt="logo" />
       <form className="login__form" onSubmit={logIn}>
         <input
           onChange={checkEmail}
-          className={
-            email.includes("@") ? "login__input--valid" : "login__input"
-          }
+          className="mainInput"
           placeholder="Email"
           type="email"
           id="email"
@@ -69,9 +70,7 @@ function Login() {
         />
         <input
           onChange={checkPassword}
-          className={
-            password.length < 8 ? "login__input" : "login__input--valid"
-          }
+          className="mainInput"
           placeholder="Password"
           type="password"
           name="password"
@@ -88,10 +87,13 @@ function Login() {
           </span>
         ) : undefined}
         {/* */}
-
-        <button className="login__button" type="submit">
-          LOGIN
-        </button>
+        {email.includes("@") && password.length > 8 ? (
+          <Button className="btn" type="submit" value="login" />
+        ) : (
+          <button disabled className="btn--disabled">
+            Login
+          </button>
+        )}
       </form>
     </div>
   );

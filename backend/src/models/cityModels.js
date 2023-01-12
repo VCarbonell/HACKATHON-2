@@ -6,14 +6,16 @@ const findAll = () => {
     .query("SELECT * FROM city;")
     .then(([res]) => res);
 };
-const findOne = (id) => {
+
+const findByName = (name) => {
   return db
     .promise()
-    .query("SELECT * from city WHERE id = ?", [id])
-    .then(([res]) => res);
+    .query("SELECT id FROM city WHERE name = ? ;", [name])
+    .then(([res]) => res)
+    .catch((err) => console.error(err));
 };
 
 module.exports = {
   findAll,
-  findOne,
+  findByName,
 };

@@ -1,1 +1,35 @@
 @import "../style.scss";
+.home {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url("/src/assets/photo/heroPhoto.jpg");
+  background-size: cover;
+  background-position: 30%;
+  .btn {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__title {
+    position: relative;
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: $white;
+    text-align: center;
+    font-family: $font;
+    font-weight: 800;
+    padding: 1rem;
+  }
+  &__logo {
+    position: fixed;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 51vw;
+    height: auto;
+  }
+}
