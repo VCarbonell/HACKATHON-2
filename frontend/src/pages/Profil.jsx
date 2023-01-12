@@ -5,18 +5,18 @@ import Header from "@components/Header";
 import { useEffect, useState } from "react";
 import Button from "@components/Button";
 import modif from "@assets/icons/edit.png";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
-import api from "@services/api";
 
 function Profil() {
-  const { userInfo } = useUser();
+  const { userInfo, setUserInfo } = useUser();
   const [userData, setUserData] = useState();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    api
-      .get("/users/logout")
-      .then((res) => console.log(res))
-      .catch((err) => console.error(err));
+    setUserInfo();
+    window.localStorage.removeItem("userData");
+    navigate("/");
   };
 
   useEffect(() => {
