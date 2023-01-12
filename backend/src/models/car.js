@@ -48,7 +48,7 @@ const deleteCar = (carId) => {
 const getAllMakes = () => {
   return db
   .promise()
-  .query('SELECT make_name from make')
+  .query('SELECT * from make')
   .then(([res])=> res)
 
 }
