@@ -20,7 +20,7 @@ function Calendrier() {
         <Calendar
           onChange={setDate}
           value={date}
-          selectRange={true}
+          selectRange
           minDate={new Date()}
           maxDate={new Date(2023, 12, 31)}
         />
