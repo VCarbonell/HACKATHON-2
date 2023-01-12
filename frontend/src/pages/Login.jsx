@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-return-assign */
+import React, { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import api from "@services/api";
+import Button from "@components/Button";
 import { useUser } from "../contexts/userContext";
 import "./login.scss";
 import logo from "../assets/icons/logo.png";
-import Button from "@components/Button";
-import api from "@services/api";
 
 function Login() {
   const { userInfo, setUserInfo } = useUser();

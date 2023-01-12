@@ -6,6 +6,7 @@ import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
+import Profil from "@pages/Profil";
 import Confirmation from "@pages/Confirmation";
 import Navbar from "@components/Navbar";
 import React from "react";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/companylogin" element={<CompanyLogin />} />
         <Route path="/companysignup" element={<CompanySignUp />} />
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/profil" element={<Profil />} />
       </Routes>
       <FilterProvider>
         <Routes>
