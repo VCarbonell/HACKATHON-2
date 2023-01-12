@@ -28,6 +28,10 @@
   font-weight: 400;
 }
 
+.SignUpForm .mainInput {
+  padding-top: inherit;
+}
+
 .SignUpForm .btn {
   position: relative;
   width: 80vw;
@@ -51,7 +55,7 @@
   height: 6vw;
   width: 6vw;
   position: absolute;
-  bottom: 37vh;
+  bottom: 37.5vh;
   right: 10vw;
 }
 
@@ -59,13 +63,14 @@
   height: 6vw;
   width: 6vw;
   position: absolute;
-  bottom: 43vh;
+  bottom: 43.5vh;
   right: 10vw;
 }
 
 .SignUpGoLogin {
   margin-top: 3vh;
   font-size: 3.25vw;
+  white-space: pre;
 }
 
 .SignUpErrorMessage {

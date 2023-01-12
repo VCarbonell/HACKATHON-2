@@ -53,3 +53,8 @@
   align-items: center;
   gap: 2vw;
 }
+
+.PaymentCardLogo img {
+  width: 10vw;
+  margin-left: 1vw;
+}

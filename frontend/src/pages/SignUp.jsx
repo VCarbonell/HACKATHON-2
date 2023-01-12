@@ -159,7 +159,7 @@ function SignUp() {
         <p className="SignUpErrorMessage">{error}</p>
         <Button value="SIGN UP" handle={handleSubmit} className="btn" />
         <p className="SignUpGoLogin">
-          Already have an account?
+          Already have an account?{" "}
           <Link to="/login" className="">
             Login
           </Link>
