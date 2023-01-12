@@ -2,11 +2,24 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import { useFilter } from "../contexts/filterContext";
 import "react-calendar/dist/Calendar.css";
-// import "./Calendrier.scss";
+import "./Calendrier.scss";
+import Header from "./Header";
+import timer from "../assets/icons/timer1.png";
+import Button from "./Button";
 
 function Calendrier() {
+  const [range, setRange] = useState("15");
+  const [rangeTow, setRangeTow] = useState("15");
   const [date, setDate] = useState();
   const { filter, setFilter } = useFilter();
+
+  const handleChange = (e) => {
+    setRange(e.target.value);
+  };
+  const handleChangeTow = (e) => {
+    setRangeTow(e.target.value);
+  };
+
   const handleDateSubmit = () => {
     setFilter({
       ...filter,
@@ -15,30 +28,54 @@ function Calendrier() {
     });
   };
   return (
-    <div className="">
-      <div className="calendar__container__content">
+    <div className="calendar">
+      <Header value="Choose your dates" back="true" />
+      <div className="calendar-container">
         <Calendar
           onChange={setDate}
           value={date}
           selectRange
           minDate={new Date()}
-          maxDate={new Date(2023, 12, 31)}
+          minDetail="month"
+          locale="en-GB"
         />
       </div>
-      {date && (
-        <p className="text-center">
-          <span className="bold" style={{ color: "white" }}>
-            Start: {date[0].toDateString()}
-          </span>
-          &nbsp;|&nbsp;
-          <span className="bold" style={{ color: "white" }}>
-            End: {date[1].toDateString()}
-          </span>
-        </p>
-      )}
-      <button type="button" onClick={handleDateSubmit}>
-        Next
-      </button>
+      <div className="border"></div>
+      <div className="btnheure">
+        <div className="valeur">
+          <img className="imgbtnclock" src={timer} alt="zz" />
+          Start at {range}h am/pm
+        </div>
+        <input
+          onChange={handleChange}
+          className="range"
+          value={range}
+          type="range"
+          min="7"
+          max="23"
+          step="1"
+          name="time"
+          id="time"
+        />
+        <div className="valeur">
+          <img className="imgbtnclock" src={timer} alt="zz" />
+          End at {rangeTow}h am/pm
+        </div>
+        <input
+          onChange={handleChangeTow}
+          className="range"
+          value={rangeTow}
+          type="range"
+          min="7"
+          max="23"
+          step="1"
+          name="time"
+          id="time"
+        />
+      </div>
+      <div className="btnnext">
+        <Button value="NEXT" className="btn" handle={handleDateSubmit} />
+      </div>
     </div>
   );
 }
