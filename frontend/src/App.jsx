@@ -12,6 +12,7 @@ import React from "react";
 import BookingCalendar from "@pages/BookingCalendar";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
+
 import "./App.css";
 import CarChoice from "@pages/CarChoice";
 import "./style.scss";

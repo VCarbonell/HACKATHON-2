@@ -1,6 +1,5 @@
 @import "../App.css";
 
-
 .ConfirmationContainer {
   display: flex;
   flex-direction: column;
@@ -20,7 +19,7 @@
   line-height: 11vw;
   font-weight: 600;
   width: 80vw;
-  letter-spacing: .4vw;
+  letter-spacing: 0.4vw;
 }
 
 .ConfirmationContainer p {

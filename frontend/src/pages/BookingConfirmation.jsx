@@ -31,7 +31,7 @@ function BookingConfirmation() {
           city: "Bordeaux",
           car_id: 2,
           user_id: 3,
-        },
+        }
         // { withCredentials: true }
       )
       .then((res) => {

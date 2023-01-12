@@ -1,9 +1,11 @@
 @import "../App.css";
 
 .Header {
+  position: fixed;
+  top: 0;
   width: 100vw;
   height: 10vh;
-  border-bottom: .5vw solid white;
+  border-bottom: 0.5vw solid white;
   display: flex;
   align-items: flex-end;
   margin-bottom: 7vh;

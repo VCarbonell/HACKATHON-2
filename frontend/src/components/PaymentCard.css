@@ -25,7 +25,7 @@
   font-family: var(--font);
   color: var(--black);
   font-size: 4.5vw;
-  border-bottom: .5vw solid var(--black);
+  border-bottom: 0.5vw solid var(--black);
   outline: none;
 }
 
@@ -41,7 +41,7 @@
   font-family: var(--font);
   color: var(--black);
   font-size: 4.5vw;
-  border-bottom: .5vw solid var(--black);
+  border-bottom: 0.5vw solid var(--black);
   outline: none;
 }
 
