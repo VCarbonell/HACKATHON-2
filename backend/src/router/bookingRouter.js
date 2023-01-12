@@ -9,7 +9,7 @@ const {
 } = require("../controllers/bookingController");
 const authorization = require("../helpers/authentication");
 
-bookingRouter.get("/", authorization, getBookingByUser);
+bookingRouter.get("/:id", getBookingByUser);
 bookingRouter.post("/new", addBooking, bookingConfirmation);
 
 module.exports = bookingRouter;

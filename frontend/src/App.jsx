@@ -7,6 +7,7 @@ import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
 import Profil from "@pages/Profil";
+import Reservation from "@pages/Reservation";
 import Confirmation from "@pages/Confirmation";
 import Navbar from "@components/Navbar";
 import React from "react";
@@ -30,6 +31,7 @@ function App() {
         <Route path="/companysignup" element={<CompanySignUp />} />
         <Route path="/confirmation" element={<Confirmation />} />
         <Route path="/profil" element={<Profil />} />
+        <Route path="/reservation" element={<Reservation />} />
       </Routes>
       <FilterProvider>
         <Routes>
