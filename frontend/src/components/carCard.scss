@@ -12,6 +12,7 @@
   margin: 1rem 0;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
+  color: $black;
 
   &__bg-img {
     position: absolute;
@@ -28,6 +29,9 @@
     font-family: $font;
     font-size: 1.3rem;
     padding: 1rem;
+    span {
+      color: $black;
+    }
     img {
       position: relative;
       width: 6vw;
@@ -41,19 +45,25 @@
     display: flex;
     font-family: $font;
     font-size: 1.3rem;
+    color: $black;
+
     span {
       font-weight: 500;
+      color: $black;
     }
   }
   &__company {
     padding: 1rem;
     position: relative;
     display: flex;
-
+    color: $black;
     align-items: center;
     font-family: $font;
     font-size: 1.3rem;
     transition: all 0.5s ease-in-out;
+    span {
+      color: $black;
+    }
 
     img {
       position: relative;
@@ -69,14 +79,18 @@
     flex-direction: column;
     padding-left: 2rem;
     font-family: $font;
+    color: $black;
+
     span {
       margin: 0.3rem 0;
+      color: $black;
     }
   }
   &__model {
     font-size: 1.4rem;
     font-weight: 400;
     margin: 0.5rem 0;
+    color: $black;
   }
   .btn {
     position: relative;
@@ -123,6 +137,9 @@
     font-family: $font;
     font-size: 1.3rem;
     transition: all 0.5s ease-in-out;
+    span {
+      color: $black;
+    }
 
     img {
       position: relative;
