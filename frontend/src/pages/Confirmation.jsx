@@ -2,8 +2,8 @@
 import "./Confirmation.css";
 import Header from "@components/Header";
 import Button from "@components/Button";
-import check from "@assets/icons/check.png";
 import { useNavigate } from "react-router-dom";
+import confirmationData from "@services/confirmationData";
 
 function Confirmation() {
   const navigate = useNavigate();
@@ -18,7 +18,16 @@ function Confirmation() {
       <div className="ConfirmationContainer">
         <h1>Thank you for your reservation !</h1>
         <p>You can now check your emails</p>
-        <img src={check} alt="check" className="ConfirmationCheck" />
+        <p id="ConfirmationPub">And now, get ready !</p>
+        <div className="ConfirmationCarousel">
+          {confirmationData.map((data) => (
+            <div className="CCOneElement">
+              <img src={data.pic} alt={data.phrase} />
+              <p>{data.phrase}</p>
+              <img src={data.logo} alt="AmazonLogo" id="CCAmazonLogo" />
+            </div>
+          ))}
+        </div>
         <Button value="Back to Home" className="btn" handle={handleNavigate} />
       </div>
     </div>
