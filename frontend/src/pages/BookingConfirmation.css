@@ -5,9 +5,7 @@
   overflow-x: hidden;
 }
 
-.BookingConfirmation p,
-h1,
-li {
+.BookingConfirmation p, h1, li {
   color: white;
   font-family: var(--font);
 }
@@ -45,7 +43,7 @@ li {
 .CheckCarImg {
   position: relative;
   padding-left: 2vw;
-  right: -1vw;
+  right: -6vw;
   background-color: white;
   border-radius: 2vw 0 0 2vw;
   display: flex;
@@ -54,18 +52,17 @@ li {
 }
 
 .CheckCarImg img {
-  width: 50vw;
+  width: 45vw;
 }
 
 .Offer li {
-  list-style: disc;
+  list-style:disc;
   margin-left: 6vw;
   margin-bottom: 1.5vw;
   font-size: 3.25vw;
 }
 
-.Rental,
-.Protections {
+.Rental, .Protections {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -111,8 +108,7 @@ li {
   font-size: 5vw;
 }
 
-.AcceptConditions,
-.Avertissements {
+.AcceptConditions, .Avertissements {
   padding-left: 10vw;
   padding-right: 10vw;
   font-size: 3.25vw;

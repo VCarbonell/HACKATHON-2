@@ -20,20 +20,16 @@ function BookingConfirmation() {
 
   const handleBook = (event) => {
     api
-      .post(
-        "booking/new",
-        {
-          email: "anitadarecka@gmail.com",
-          company: "SNCF",
-          car: "Volvo XC90",
-          start_date: "2023-02-12",
-          end_date: "2023-02-17",
-          city: "Bordeaux",
-          car_id: 2,
-          user_id: 3,
-        }
-        // { withCredentials: true }
-      )
+      .post("booking/new", {
+        email: "anitadarecka@gmail.com",
+        company: "SNCF",
+        car: "Volvo XC90",
+        start_date: "2023-02-12",
+        end_date: "2023-02-17",
+        city: "Bordeaux",
+        car_id: 2,
+        user_id: 3,
+      })
       .then((res) => {
         if (res.status === 201) {
           // navigate("/");
