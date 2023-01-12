@@ -25,7 +25,6 @@ function CityChoice() {
       .then((res) => setFilter({ ...filter, city: res.data[0].id }))
       .catch((err) => console.error(err));
   };
-
   const getCurrentPosition = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -83,7 +82,7 @@ function CityChoice() {
   };
 
   const goToNext = () => {
-    navigate("/login");
+    navigate("/carchoice");
   };
 
   useEffect(() => {
@@ -92,13 +91,14 @@ function CityChoice() {
       .then((res) => setAllCity(res.data))
       .catch((err) => console.error(err));
   }, []);
+  console.log(filter);
 
   return (
     <div className="CityChoice">
       <input
         type="text"
         className="mainInput CityChoiceInput"
-        placeholder="City"
+        placeholder="Derpart from..."
         onChange={handleFilter}
         value={actualSearch}
       />

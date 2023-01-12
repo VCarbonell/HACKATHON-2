@@ -5,8 +5,10 @@ import gsap from "gsap";
 import rightArrow from "../assets/icons/arrowright.png";
 import filterIcon from "../assets/icons/filter.png";
 import Button from "./Button";
+import { useFilter } from "../contexts/filterContext";
 
 function FilterNav() {
+  const { filter, setFilter } = useFilter();
   const navigate = useNavigate();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [range, setRange] = useState("20");
@@ -16,9 +18,11 @@ function FilterNav() {
     fuel: "",
     seats: "",
   });
-  const test = (e) => {
-    console.log(e.target.name);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFilter({ ...filter, ...formData });
   };
+
   const handleChange = (e) => {
     setFormData((prevFormData) => {
       setRange(e.target.value);
@@ -29,16 +33,17 @@ function FilterNav() {
     });
   };
 
-  const handClick = (e) => {
+  const handleClick = (e) => {
     setFormData((prevFormData) => {
-      setRange(e.target.value);
       return {
         ...prevFormData,
-        [e.target.name]: e.target.value,
+        [e.target.name]: e.target.innerHTML,
       };
     });
   };
-
+  const test = () => {
+    console.log(formData);
+  };
   const openFilter = () => {
     const openTl = gsap.timeline();
     setIsFilterOpen(!isFilterOpen);
@@ -178,11 +183,41 @@ function FilterNav() {
         <div className="filterNav__modelType">
           <span className="filterNav__subTitle">Model type</span>
           <div className="filterNav__wrap">
-            <button className="filterNav__btn">Sedan</button>
-            <button className="filterNav__btn">Convertible</button>
-            <button className="filterNav__btn">SUV</button>
-            <button className="filterNav__btn">Truck</button>
-            <button className="filterNav__btn">Coupe</button>
+            <button
+              name="type"
+              onClick={handleClick}
+              className="filterNav__btn"
+            >
+              Sedan
+            </button>
+            <button
+              name="type"
+              onClick={handleClick}
+              className="filterNav__btn"
+            >
+              Convertible
+            </button>
+            <button
+              name="type"
+              onClick={handleClick}
+              className="filterNav__btn"
+            >
+              SUV
+            </button>
+            <button
+              name="type"
+              onClick={handleClick}
+              className="filterNav__btn"
+            >
+              Truck
+            </button>
+            <button
+              name="type"
+              onClick={handleClick}
+              className="filterNav__btn"
+            >
+              Coupe
+            </button>
           </div>
         </div>
         <div className="filterNav__price">
@@ -202,13 +237,25 @@ function FilterNav() {
         <div className="filterNav__fuel">
           <span className="filterNav__subTitle">Fuel</span>
           <div className="filterNav__wrap">
-            <button onClick={test} name="fuel" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="fuel"
+              className="filterNav__btn"
+            >
               gasoline
             </button>
-            <button name="fuel" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="fuel"
+              className="filterNav__btn"
+            >
               electric
             </button>
-            <button name="fuel" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="fuel"
+              className="filterNav__btn"
+            >
               Diesel
             </button>
           </div>
@@ -216,24 +263,50 @@ function FilterNav() {
         <div className="filterNav__seats">
           <span className="filterNav__subTitle">seats</span>
           <div className="filterNav__wrap">
-            <button name="seats" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="seats"
+              className="filterNav__btn"
+            >
               4
             </button>
-            <button name="seats" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="seats"
+              className="filterNav__btn"
+            >
               5
             </button>
-            <button name="seats" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="seats"
+              className="filterNav__btn"
+            >
               6
             </button>
-            <button name="seats" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="seats"
+              className="filterNav__btn"
+            >
               7
             </button>
-            <button name="seats" className="filterNav__btn">
+            <button
+              onClick={handleClick}
+              name="seats"
+              className="filterNav__btn"
+            >
               8
             </button>
           </div>
         </div>
-        <Button value="Filter" className="btn" type="button" />
+
+        <Button
+          handle={handleSubmit}
+          value="Filter"
+          className="btn"
+          type="button"
+        />
       </div>
     </div>
   );

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
-import "./login.scss";
+import "./companyLogin.scss";
+import Button from "@components/Button";
+import Header from "@components/Header";
 
 function CompanyLogin() {
   const { setUserInfo } = useUser();
@@ -55,13 +57,18 @@ function CompanyLogin() {
   };
   return (
     <div className="login">
-      <h2>login page</h2>
+      <Header value="Login Pro" />
       <form className="login__form" onSubmit={logIn}>
         <input
+          className="mainInput"
+          placeholder="Company name"
+          type="text"
+          id="text"
+          name="text"
+        />
+        <input
           onChange={checkEmail}
-          className={
-            email.includes("@") ? "login__input--valid" : "login__input"
-          }
+          className="mainInput"
           placeholder="Email"
           type="email"
           id="email"
@@ -69,9 +76,7 @@ function CompanyLogin() {
         />
         <input
           onChange={checkPassword}
-          className={
-            password.length < 8 ? "login__input" : "login__input--valid"
-          }
+          className="mainInput"
           placeholder="Password"
           type="password"
           name="password"
@@ -88,10 +93,27 @@ function CompanyLogin() {
           </span>
         ) : undefined}
         {/* */}
+        <div className="login__switchWrap">
+          <label className="login__switch">
+            <input
+              name="employee_only"
+              type="checkbox"
+              className="login__radio"
+            />
+            <span className="login__slider" />
+          </label>
+          <span className="login__employees">
+            Allow only your employees to rent your cars.
+          </span>
+        </div>
 
-        <button className="login__button" type="submit">
-          LOGIN
-        </button>
+        {email.includes("@") && password.length > 8 ? (
+          <Button className="btn" type="submit" value="login" />
+        ) : (
+          <button disabled className="btn--disabled">
+            Login
+          </button>
+        )}
       </form>
     </div>
   );

@@ -6,6 +6,8 @@ $filterBtn: #333333;
 $filterBtnHover: #4f4f4f;
 $black: #0c0c0c;
 $white: rgb(243, 243, 243);
+$companyColor: #ff9900;
+$companycolorFade: #fdba56;
 
 html,
 body,
@@ -154,6 +156,7 @@ body {
   outline: none;
   color: $white;
   background-color: $black;
+  padding-top: 2rem;
   &::placeholder {
     color: $white;
   }
