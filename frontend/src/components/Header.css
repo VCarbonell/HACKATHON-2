@@ -1,0 +1,33 @@
+@import "../App.css";
+
+.Header {
+  width: 100vw;
+  height: 10vh;
+  border-bottom: .5vw solid white;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 7vh;
+}
+
+.Header div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  margin-bottom: 2vw;
+}
+
+.Header img {
+  width: 7vw;
+  height: 7vw;
+  margin-bottom: 4vw;
+  position: absolute;
+  left: 2vw;
+}
+
+.Header h1 {
+  color: white;
+  font-family: var(--font);
+  font-size: 5.5vw;
+  margin-bottom: 4vw;
+}

@@ -6,6 +6,7 @@ import CityChoice from "@pages/CityChoice";
 import Home from "@pages/Home";
 import Login from "@pages/Login";
 import SignUp from "@pages/SignUp";
+import Confirmation from "@pages/Confirmation";
 import Navbar from "@components/Navbar";
 import React from "react";
 import BookingCalendar from "@pages/BookingCalendar";
@@ -25,13 +26,14 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/companylogin" element={<CompanyLogin />} />
         <Route path="/companysignup" element={<CompanySignUp />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
       <FilterProvider>
         <Routes>
           <Route path="/city" element={<CityChoice />} />
           <Route path="/carchoice" element={<CarChoice />} />
           <Route path="/calendar" element={<BookingCalendar />} />
-          <Route path="/confirmation" element={<BookingConfirmation />} />
+          <Route path="/booking" element={<BookingConfirmation />} />
         </Routes>
       </FilterProvider>
       <Navbar />
