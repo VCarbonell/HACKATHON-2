@@ -6,16 +6,19 @@ import rightArrow from "../assets/icons/arrowright.png";
 import Button from '@components/Button';
 import addPhotoIcon from '@assets/icons/galleryadd.png'
 import { useEffect, useState, useRef } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 
 const AddCar = () => {
+  const navigate = useNavigate();
   const inputRef = useRef(null);
   const [carMakes, setCarMakes] = useState([]);
-  const [price, setPrice] =useState(50)
-  const [year, setYear] =useState(2020)
-  const [milleage, setMilleage] =useState(30000)
-
+  const [carMake, setCarMake] = useState();
+  const [price, setPrice] = useState(50)
+  const [year, setYear] = useState(2000)
+  const [milleage, setMilleage] = useState(60000)
+  const [fuel, setFuel] = useState("");
 
   const handlePrice = (e) => {
     setPrice(e.target.value)
@@ -26,16 +29,26 @@ const AddCar = () => {
   const handleMilleage = (e) => {
     setMilleage(e.target.value)
   }
+
+  const handleMake = (e) => {
+    setCarMake(e.target.value);
+    console.log(carMake);
+  }
+
   const fetchMakes = () => {
     axios.get('http://localhost:8000/api/car/makes')
     .then((response)=> setCarMakes(response.data))
   }
-const handleSubmit = (e) => {
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const payload = { model: carMake, year: Number(year), price: Number(price), mileage: Number(milleage), fuel: fuel, company_id: 6 }
+  console.log(payload);
   const formData = new FormData();
   formData.append("car", inputRef.current.files[0]);
-  e.preventDefault()
-  axios.post("http://localhost:8000/api/car/", formData)
-}
+  axios.post("http://localhost:8000/api/car/imageUpload", formData);
+  axios.post("http://localhost:8000/api/car/addCar", { ...payload });
+  // navigate();
+};
   
   useEffect(()=>{
     fetchMakes()
@@ -47,18 +60,22 @@ const handleSubmit = (e) => {
      <img className='addCar__icon' src={addPhotoIcon} alt="" />
        <input ref={inputRef} className='addCar__addPic' type="file" name="picture" id="" />
      </div>
-     <button onClick={handleSubmit}>testYOLO</button>
-  <select name="make" id="">
+     {/* <button onClick={handleSubmit}>testYOLO</button> */}
+  <select name="make" id="" onChange={handleMake}>
   <option value="">Select a make</option>
-    {carMakes.map((el)=> <option value={el.make_id}>{el.make_name}</option>)}
+    <option value="Focus">Ford</option>    
+    <option value="C-Class">Mercedes</option>
+    <option value="Zoe">Renault</option>
+    <option value="Model Y Performance">Tesla</option>
+
   </select>
      <select>
-       <option value="">Select your vehicule</option>
-       <option value="Sedan">Sedan</option>
-       <option value="Convertible">Convertible</option>
-       <option value="SUV">SUV</option>
-       <option value="Truck">Truck</option>
-       <option value="Coupe">Coupe</option>
+       <option value="">Select vehicule type</option>
+       <option value="1">Sedan</option>
+       <option value="5">Convertible</option>
+       <option value="2">SUV</option>
+       <option value="3">Truck</option>
+       <option value="4">Coupe</option>
      </select>
      <div className="addCar__rangeWrap">
      <label htmlFor="price">Price/day</label>
@@ -71,30 +88,30 @@ const handleSubmit = (e) => {
      <label htmlFor="year">Year of construction</label>
      <span className='addCar__state'>{year}</span>
 
-     <input onChange={handleYear} min='1970' max='2023' id='year' type="range"></input>
+     <input onChange={handleYear} min='1980' max='2023' id='year' type="range"></input>
      </div>
      <div className="addCar__rangeWrap">
      <label htmlFor="milleage">Milleage</label>
      <span className='addCar__state'>{milleage}Km</span>
 
-     <input onChange={handleMilleage} min='5000' step='1000' max='300000' id='milleage' type="range"></input>
+     <input onChange={handleMilleage} min='1000' step='1000' max='120000' id='milleage' type="range"></input>
      </div>
-      <select name="fuel" id="fuel">
-      <option value="">fuel</option>
-        <option value="gasoline">gasoline</option>
-        <option value="electric">electric</option>
-        <option value="diesel">desiel</option>
+      <select name="Fuel" id="fuel" onChange={(e) => setFuel(e.target.value)}>
+      <option value="">Fuel</option>
+        <option value="Gasoline">Gasoline</option>
+        <option value="Electric">Electric</option>
+        <option value="Diesel">Diesel</option>
 
       </select> 
-      <select name="seats" id="seats">
+      {/* <select name="seats" id="seats">
       <option value="">Number of seats</option>
         <option value="4">4</option>
         <option value="5">5</option>
         <option value="6">6</option>
         <option value="7">7</option>
         <option value="8">8</option>
-      </select>
-    <Button value='Add' className='btn'/>
+      </select> */}
+    <Button type="submit" value='Add' className='btn' handle={handleSubmit}/>
    </form>
   </div>;
 };
