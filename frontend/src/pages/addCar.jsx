@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import "./addCar.scss";
 import Header from "@components/Header";
@@ -49,7 +50,7 @@ const handleSubmit = (e) => {
      <button onClick={handleSubmit}>testYOLO</button>
   <select name="make" id="">
   <option value="">Select a make</option>
-    {carMakes.map((el)=> <option value={el.make_name}>{el.make_name}</option>)}
+    {carMakes.map((el)=> <option value={el.make_id}>{el.make_name}</option>)}
   </select>
      <select>
        <option value="">Select your vehicule</option>
