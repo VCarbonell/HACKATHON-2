@@ -3,7 +3,8 @@ import "./addCar.scss";
 import Header from "@components/Header";
 import rightArrow from "../assets/icons/arrowright.png";
 import Button from '@components/Button';
-import addPhotoIcon from '@assets/icons/galleryadd.png'
+import addPhotoIcon from '@assets/icons/galleryadd.png';
+import { useCompany } from 'src/contexts/companyContext';
 import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 
@@ -14,6 +15,9 @@ const AddCar = () => {
   const [price, setPrice] =useState(50)
   const [year, setYear] =useState(2020)
   const [milleage, setMilleage] =useState(30000)
+  const {company, setCompany} = useCompany();
+
+  
 
 
   const handlePrice = (e) => {
