@@ -45,10 +45,17 @@ const deleteCar = (carId) => {
     .query("DELETE FROM car WHERE id = ? ;", [carId])
     .then(([res]) => res);
 };
+const getAllMakes = () => {
+  return db
+  .promise()
+  .query('SELECT * from make')
+  .then(([res])=> res)
 
+}
 module.exports = {
   getCars,
   addCar,
   updateCar,
   deleteCar,
+  getAllMakes 
 };

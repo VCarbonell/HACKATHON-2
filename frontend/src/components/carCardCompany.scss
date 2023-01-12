@@ -12,7 +12,6 @@
   margin: 1rem 0;
   transition: all 0.5s ease-in-out;
   cursor: pointer;
-  color: $black;
 
   &__bg-img {
     position: absolute;
@@ -29,9 +28,6 @@
     font-family: $font;
     font-size: 1.3rem;
     padding: 1rem;
-    span {
-      color: $black;
-    }
     img {
       position: relative;
       width: 6vw;
@@ -45,25 +41,19 @@
     display: flex;
     font-family: $font;
     font-size: 1.3rem;
-    color: $black;
-
     span {
       font-weight: 500;
-      color: $black;
     }
   }
   &__company {
     padding: 1rem;
     position: relative;
     display: flex;
-    color: $black;
+
     align-items: center;
     font-family: $font;
     font-size: 1.3rem;
     transition: all 0.5s ease-in-out;
-    span {
-      color: $black;
-    }
 
     img {
       position: relative;
@@ -79,18 +69,14 @@
     flex-direction: column;
     padding-left: 2rem;
     font-family: $font;
-    color: $black;
-
     span {
       margin: 0.3rem 0;
-      color: $black;
     }
   }
   &__model {
     font-size: 1.4rem;
     font-weight: 400;
     margin: 0.5rem 0;
-    color: $black;
   }
   .btn {
     position: relative;
@@ -137,9 +123,6 @@
     font-family: $font;
     font-size: 1.3rem;
     transition: all 0.5s ease-in-out;
-    span {
-      color: $black;
-    }
 
     img {
       position: relative;
@@ -147,5 +130,55 @@
       height: auto;
       padding: 0 0.4rem;
     }
+  }
+}
+.carCard__switch {
+  position: absolute;
+  left: 1rem;
+  width: 65px;
+  height: 30px;
+  margin-left: 0rem;
+  z-index: 0;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    display: flex;
+    align-items: center;
+  }
+  input:checked + .carCard__slider {
+    background-color: $companyColor;
+  }
+  input:checked + .carCard__slider:before {
+    -webkit-transform: translateX(37px);
+    -ms-transform: translateX(37px);
+    transform: translateX(37px);
+    border-radius: 10rem;
+    background-color: $white;
+  }
+}
+.carCard__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $white;
+  transition: 0.4s;
+  border-radius: 10rem;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 1px;
+    bottom: 3px;
+    background-color: $black;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 10rem;
   }
 }

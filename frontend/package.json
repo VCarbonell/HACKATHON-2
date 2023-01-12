@@ -12,6 +12,7 @@
   "dependencies": {
     "@ptomasroos/react-native-multi-slider": "^2.2.2",
     "axios": "^1.2.2",
+    "gsap": "^3.11.4",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-calendar": "^4.0.0",

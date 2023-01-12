@@ -1,11 +1,12 @@
 /* eslint-disable import/no-unresolved */
-import CarCard from "@components/carCard";
+import CarCard from "@components/CarCard";
 import FilterNav from "@components/FilterNav";
 import allCarPicure from "@services/allCarPicture";
 import api from "@services/api";
 import React, { useState, useEffect } from "react";
 import { useFilter } from "../contexts/filterContext";
 import "./carChoice.scss";
+import car from "@assets/icons/car.png";
 
 function CarChoice() {
   const [allCar, setAllCar] = useState();
@@ -22,7 +23,6 @@ function CarChoice() {
         .catch((err) => console.error(err));
     }
   }, [queryFilter]);
-
   return (
     <div className="carChoice">
       <FilterNav />
