@@ -23,16 +23,20 @@ function BookingConfirmation() {
       .post(
         "booking/new",
         {
-          start_date: filter.start_date,
-          end_date: filter.end_date,
-          // car_id: ...,
-          // user_id: ...,
+          email: "anitadarecka@gmail.com",
+          company: "SNCF",
+          car: "Volvo XC90",
+          start_date: "2023-02-12",
+          end_date: "2023-02-17",
+          city: "Bordeaux",
+          car_id: 2,
+          user_id: 3,
         },
-        { withCredentials: true }
+        // { withCredentials: true }
       )
       .then((res) => {
         if (res.status === 201) {
-          navigate("/");
+          // navigate("/");
         }
       })
       .catch((err) => setError(err.response.data.error));
