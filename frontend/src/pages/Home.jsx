@@ -13,6 +13,8 @@ function Home() {
       <NavLink to="/city">
         <Button className="btn" type="button" value="GET STARTED" />
       </NavLink>
+
+
     </div>
   );
 }

@@ -94,7 +94,7 @@ function CityChoice() {
 
   return (
     <div className="CityChoice">
-      <Header value="Choose your city" />
+      <Header back={true} value="Choose your city" />
       <div className="Explications">
         <p className="ExplicationsQuestion">What is Prime Ride ?</p>
         <p className="Explication">
@@ -116,7 +116,7 @@ function CityChoice() {
           handleResearch={handleResearch}
         />
       )}
-      <Button value="NEXT" type="button" className="btn" handle={goToNext} />
+      <Button  value="NEXT" type="button" className="btn" handle={goToNext} />
     </div>
   );
 }
