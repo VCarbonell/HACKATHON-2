@@ -7,6 +7,22 @@ const cityController = {
       .then((city) => res.send(city))
       .catch((err) => next(err));
   },
+
+  getOneCity: (req, res, next) => {
+    const { id } = req.params;
+    cityModels
+      .findOne(id)
+      .then((city) => res.send(city))
+      .catch((err) => next(err));
+  },
+
+  getCityByName: (req, res, next) => {
+    const { name } = req.params;
+    cityModels
+      .findByName(name)
+      .then((city) => res.send(city))
+      .catch((err) => next(err));
+  },
 };
 
 module.exports = cityController;
