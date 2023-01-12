@@ -52,6 +52,7 @@ const carController = {
 
   addCar: (req, res, next) => {
     const carInfo = req.body;
+    console.log('ici what ever')
     carModel
       .addCar(carInfo)
       .then((result) => res.status(201).send({ id: result.insertId, carInfo }))
@@ -84,6 +85,12 @@ const carController = {
       })
       .catch((err) => next(err));
   },
+  getAllMakes : (req,res,next) => {
+    carModel
+    .getAllMakes()
+    .then((result)=> res.status(200).send(result))
+    .catch((err)=> next(err))
+  }
 };
 
 module.exports = carController;

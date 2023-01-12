@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react";
 
 const companyContext = createContext();
 
-export function companyProvider({ children }) {
+export function CompanyProvider({ children }) {
   const { Provider } = companyContext;
 
   const [company, setCompany] = useState({});

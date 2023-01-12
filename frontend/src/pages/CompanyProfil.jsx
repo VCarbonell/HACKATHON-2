@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
-import "./companyLogin.scss";
+import "./companyProfil.scss";
 import Button from "@components/Button";
 import Header from "@components/Header";
 
