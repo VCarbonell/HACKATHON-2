@@ -5,10 +5,7 @@ import Header from "@components/Header";
 import Button from "@components/Button";
 import addPhotoIcon from "@assets/icons/galleryadd.png";
 import { useCompany } from "../contexts/companyContext";
-import axios from "axios";
 import rightArrow from "../assets/icons/arrowright.png";
-import Button from '@components/Button';
-import addPhotoIcon from '@assets/icons/galleryadd.png'
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
