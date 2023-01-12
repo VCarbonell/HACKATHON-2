@@ -1,0 +1,129 @@
+.chat__page {
+  position: absolute;
+  color: white;
+  width: 100vw;
+  height: 90vh;
+  background-color: #0c0c0c;
+  z-index: 5;
+  bottom: 10vh;
+  right: 0;
+  font-family: Poppins;
+  font-size: 1.2rem;
+}
+
+.chat__header { 
+  position: absolute;
+  top: 10px;
+  text-align: center;
+  border: 1px solid white;
+  width: 100%;
+}
+.chat__content { 
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+  align-items: center;
+  justify-content: flex-end;
+  border: 1px solid white;
+}
+
+.chat__body {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 10px;
+  border: 1px solid white;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+#me .message {
+  display: flex;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+}
+
+#me .message__container {
+      display: flex;
+      width: 80%;
+      justify-content: flex-end !important;
+      background-color: #00a8e1;
+      border-radius: 10px;
+      font-size: 0.8rem;
+}
+
+#me .message__content {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  justify-content: flex-end !important;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+#me .message__meta {
+  display: flex;
+  justify-content: flex-end !important;
+}
+
+#other .message__container {
+  display: flex;
+  width: 80%;
+  justify-content: flex-end !important;
+  background-color: #465054;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+#other .message__content {
+  display: flex;
+    width: 100%;
+    padding: 10px;
+    justify-content: flex-end !important;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+
+#other .message__meta {
+  display: flex;
+  justify-content: flex-start !important;
+}
+
+.chat__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  gap: 10px;
+  width: 90%;
+}
+
+.message__input {
+  width: 80%;
+  border-radius: 50px;
+  background-color: #0c0c0c;
+  border: 1px solid gray;
+  padding: 10px 18px;
+  font-family: Poppins;
+  font-size: 1rem;
+  outline: none;
+  color: white;
+  letter-spacing: 0.9px;
+  height: 35px;
+}
+
+.send__button {
+  background-image: url("/src/assets/icons/send_msg.png");
+  background-size: cover;
+  width: 45px;
+  height: 40px;
+  padding: 5px;
+};

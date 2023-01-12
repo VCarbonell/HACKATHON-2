@@ -96,11 +96,13 @@ const userController = {
         if (!user) {
           res.status(401).send({ error: "Invalid email." });
         } else {
-          const { id, password: hash } = user;
+          const { id, firstname, lastname, password: hash } = user;
           if (await passwordVerify(hash, password)) {
             const token = jwtSign(
               {
                 id,
+                firstname,
+                lastname,
                 email,
               },
               {
@@ -113,7 +115,7 @@ const userController = {
                 secure: false,
               })
               .status(200)
-              .send({ id, email });
+              .send({ id, firstname, lastname, email });
           } else {
             res.status(401).send({ error: "Invalid password." });
           }

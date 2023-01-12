@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "@services/api";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
 import "./login.scss";
@@ -22,8 +23,8 @@ function Login() {
     const formDataObj = {};
     formData.forEach((value, key) => (formDataObj[key] = value));
 
-    axios
-      .post("http://localhost:8000/api/users/login", {
+    api
+      .post("users/login", {
         email: formDataObj.email,
         password: formDataObj.password,
       })

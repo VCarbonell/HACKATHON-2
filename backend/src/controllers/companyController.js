@@ -78,11 +78,12 @@ const companyController = {
         if (!result) {
           res.status(401).send({ error: "Invalid email." });
         } else {
-          const { id, password: hash } = result;
+          const { id, name_company, password: hash } = result;
           if (await passwordVerify(hash, password)) {
             const token = jwtSign(
               {
                 id,
+                name_company,
                 email,
               },
               {
@@ -95,7 +96,7 @@ const companyController = {
                 secure: false,
               })
               .status(200)
-              .send({ id, email });
+              .send({ id, name_company, email });
           } else {
             res.status(401).send({ error: "Invalid password." });
           }
