@@ -45,7 +45,7 @@ li {
 .CheckCarImg {
   position: relative;
   padding-left: 2vw;
-  right: -1vw;
+  right: -6vw;
   background-color: white;
   border-radius: 2vw 0 0 2vw;
   display: flex;
@@ -54,7 +54,7 @@ li {
 }
 
 .CheckCarImg img {
-  width: 50vw;
+  width: 45vw;
 }
 
 .Offer li {

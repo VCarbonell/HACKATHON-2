@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import "./Header.css";
+import { useNavigate } from "react-router-dom";
 import rightArrow from "../assets/icons/arrowright.png";
-import { useNavigate } from 'react-router-dom';
 
 function Header({ value, back }) {
   const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
-  }
+  };
   return (
     <div className="Header">
       <div>

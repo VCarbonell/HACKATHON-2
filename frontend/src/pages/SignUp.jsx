@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable import/no-unresolved */
 import { React, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -47,8 +49,13 @@ function SignUp() {
         .post(
           "/users/newClient",
           {
+            firstname: formData.firstname,
+            lastname: formData.lastname,
             email: formData.email,
+            licence_number: formData.licence_number,
+            adress: formData.adress,
             password: formData.password,
+            company_code: formData.company_code,
           },
           { withCredentials: true }
         )
@@ -117,14 +124,12 @@ function SignUp() {
             value={formData.password}
             onChange={handleChange}
             placeholder="Password"
-          />{" "}
-          <button
-            type="button"
+          />
+          <div
             onClick={() => setShowPassword(!showPassword)}
-            className=""
-          >
-            {showPassword ? "don't show" : "show"}
-          </button>
+            className={showPassword ? "showPass" : "hidePass"}
+            id="showPassword"
+          />
         </div>
         <div className="">
           <input
@@ -136,13 +141,11 @@ function SignUp() {
             onChange={handleChange}
             placeholder="Confirm your password"
           />
-          <button
-            type="button"
+          <div
             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            className=""
-          >
-            {showConfirmPassword ? "don't show" : "show"}
-          </button>
+            className={showConfirmPassword ? "showPass" : "hidePass"}
+            id="showConfirmPassword"
+          />
         </div>
         <input
           className="mainInput"
@@ -153,15 +156,13 @@ function SignUp() {
           onChange={handleChange}
           placeholder="Partner company code (optional)"
         />
-        <p className="">{error}</p>
+        <p className="SignUpErrorMessage">{error}</p>
         <Button value="SIGN UP" handle={handleSubmit} className="btn" />
-        <p className="">
-          Already have an account?{" "}
-          <span className="">
-            <Link to="/login" className="">
-              Login
-            </Link>
-          </span>
+        <p className="SignUpGoLogin">
+          Already have an account?
+          <Link to="/login" className="">
+            Login
+          </Link>
         </p>
       </div>
     </div>

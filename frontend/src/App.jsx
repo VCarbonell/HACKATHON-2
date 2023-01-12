@@ -12,13 +12,12 @@ import React from "react";
 import BookingCalendar from "@pages/BookingCalendar";
 import { Routes, Route } from "react-router-dom";
 import { FilterProvider } from "./contexts/filterContext";
-import { CompanyProvider } from './contexts/companyContext';
+import { CompanyProvider } from "./contexts/companyContext";
 import "./App.css";
 import CarChoice from "@pages/CarChoice";
 import "./style.scss";
 import BookingConfirmation from "@pages/BookingConfirmation";
-import AddCar from '@pages/addCar';
-
+import AddCar from "@pages/addCar";
 
 function App() {
   return (
@@ -26,15 +25,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />      
+        <Route path="/login" element={<Login />} />
         <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
       <CompanyProvider>
         <Routes>
-          <Route path='/addcar' element={<AddCar/>} />
+          <Route path="/addcar" element={<AddCar />} />
           <Route path="/companyprofil" element={<CompanyProfil />} />
           <Route path="/companysignup" element={<CompanySignUp />} />
-        {/* <Route path="/companylogin" element={<CompanyLogin />} /> */}
+          {/* <Route path="/companylogin" element={<CompanyLogin />} /> */}
         </Routes>
       </CompanyProvider>
       <FilterProvider>
