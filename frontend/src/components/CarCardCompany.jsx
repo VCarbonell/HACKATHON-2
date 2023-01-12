@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./carCard.scss";
+import "./carCardCompany.scss";
 import carphoto from "../assets/photo/vehicules/Tesla_Model_Y.png";
-import carIcon from "../assets/icons/car.png";
 import companyIcon from "../assets/icons/companyIcon.png";
+
 import Button from "./Button";
 
-function CarCard() {
+function CarCard({ src, isCompany }) {
   const [big, setBig] = useState(false);
   const expend = () => {
     setBig(!big);
@@ -18,7 +18,7 @@ function CarCard() {
         alt=""
       />
       <div className="carCard__make">
-        <img src={carIcon} alt="" />
+        <img src={src} alt="" />
         <span>ford focus</span>
       </div>
       <div className="carCard__price">
@@ -26,8 +26,17 @@ function CarCard() {
       </div>
 
       <div className={big ? "carCard--big__company" : "carCard__company"}>
-        <img src={companyIcon} alt="" />
+        <img src={isCompany ? null : companyIcon} alt="" />
+        {isCompany ?
+
+          <label className="carCard__switch">
+            <input type="checkbox" />
+            <span className="carCard__slider" />
+          </label>
+
+        :
         <span>SNCF</span>
+        }
       </div>
       <div className="carCard__description">
         <h3 className="carCard__model">Ford de merde compact</h3>

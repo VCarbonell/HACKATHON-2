@@ -3,7 +3,7 @@ import "./addCar.scss";
 import Header from "@components/Header";
 import Button from "@components/Button";
 import addPhotoIcon from "@assets/icons/galleryadd.png";
-import { useCompany } from "src/contexts/companyContext";
+import { useCompany } from "../contexts/companyContext";
 import axios from "axios";
 import rightArrow from "../assets/icons/arrowright.png";
 
@@ -30,11 +30,12 @@ function AddCar() {
       .then((response) => setCarMakes(response.data));
   };
   const handleSubmit = (e) => {
-    const formData = new FormData();
-    formData.append("car", inputRef.current.files[0]);
+
+    
     e.preventDefault();
-    axios.post("http://localhost:8000/api/car/", formData);
+
   };
+
 
   useEffect(() => {
     fetchMakes();
@@ -42,7 +43,7 @@ function AddCar() {
   return (
     <div className="addCar">
       <Header value="Add a vehicule" back />
-      <form encType="multipart/form-data" className="addCar__form">
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className="addCar__form">
         <div className="addCar__photoWrap">
           <img className="addCar__icon" src={addPhotoIcon} alt="" />
           <input
@@ -53,7 +54,6 @@ function AddCar() {
             id=""
           />
         </div>
-        <button onClick={handleSubmit}>testYOLO</button>
         <select name="make" id="">
           <option value="">Select a make</option>
           {carMakes.map((el) => (

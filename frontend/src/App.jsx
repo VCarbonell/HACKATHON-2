@@ -18,6 +18,7 @@ import CarChoice from "@pages/CarChoice";
 import "./style.scss";
 import BookingConfirmation from "@pages/BookingConfirmation";
 import AddCar from "@pages/addCar";
+import CompanyCar from '@pages/CompanyCar';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/addcar" element={<AddCar />} />
           <Route path="/companyprofil" element={<CompanyProfil />} />
           <Route path="/companysignup" element={<CompanySignUp />} />
+          <Route path='/companycar' element={<CompanyCar/>}/>
           {/* <Route path="/companylogin" element={<CompanyLogin />} /> */}
         </Routes>
       </CompanyProvider>
