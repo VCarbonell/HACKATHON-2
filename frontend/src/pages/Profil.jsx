@@ -1,11 +1,11 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable import/no-unresolved */
+import { useNavigate } from "react-router-dom";
 import "./Profil.css";
 import Header from "@components/Header";
 import { useEffect, useState } from "react";
 import Button from "@components/Button";
 import modif from "@assets/icons/edit.png";
-import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
 
 function Profil() {
@@ -14,7 +14,7 @@ function Profil() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    setUserInfo();
+    setUserInfo({ id: undefined });
     window.localStorage.removeItem("userData");
     navigate("/");
   };

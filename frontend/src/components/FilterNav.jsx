@@ -4,6 +4,7 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from "react";
 import "./filterNav.scss";
+
 import { useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import rightArrow from "../assets/icons/arrowright.png";
@@ -23,7 +24,9 @@ function FilterNav() {
     seats: "",
   });
   const handleSubmit = (e) => {
+    closeFilter();
     e.preventDefault();
+
     setFilter({ ...filter, ...formData });
   };
 
@@ -36,7 +39,8 @@ function FilterNav() {
       };
     });
   };
-0
+  //   0;
+  // 0
   const handleClick = (e) => {
     setFormData((prevFormData) => {
       return {
@@ -188,14 +192,14 @@ function FilterNav() {
             <button
               name="type"
               onClick={handleClick}
-              className="filterNav__btn"
+              className={"filterNav__btn"}
             >
               Sedan
             </button>
             <button
               name="type"
               onClick={handleClick}
-              className="filterNav__btn"
+              className={"filterNav__btn"}
             >
               Convertible
             </button>

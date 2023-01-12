@@ -8,6 +8,7 @@
   border-bottom: 0.5vw solid white;
   display: flex;
   align-items: flex-end;
+  background-color: var(--black);
   margin-bottom: 7vh;
   background-color: var(--black);
   z-index: 20;
