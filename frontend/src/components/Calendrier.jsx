@@ -38,7 +38,6 @@ function Calendrier() {
           minDate={new Date()}
           minDetail="month"
           locale="en-GB"
-
         />
       </div>
       <div className="border"></div>
