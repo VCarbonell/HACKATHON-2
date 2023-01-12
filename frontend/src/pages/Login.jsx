@@ -1,3 +1,8 @@
+/* eslint-disable consistent-return */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-nested-ternary */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-return-assign */
 import React, { useState } from "react";
@@ -10,7 +15,7 @@ import "./login.scss";
 import logo from "../assets/icons/logo.png";
 
 function Login() {
-  const { userInfo, setUserInfo } = useUser();
+  const { setUserInfo } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   axios.defaults.withCredentials = true;
@@ -46,9 +51,9 @@ function Login() {
           navigate("/");
         }
       })
-      .catch((error) => {
-        console.log(error);
-        setError(error.request.status);
+      .catch((err) => {
+        console.error(err);
+        setError(err.request.status);
       });
   };
 
@@ -90,12 +95,26 @@ function Login() {
         ) : undefined}
         {/* */}
         {email.includes("@") && password.length > 8 ? (
-          <Button className="btn" type="submit" value="login" />
+          <Button
+            className="btn"
+            type="submit"
+            value="login"
+            handle={() => navigate("/booking")}
+          />
         ) : (
           <button disabled className="btn--disabled">
             Login
           </button>
         )}
+        <div className="LoginNoAccountContainer">
+          <p className="LoginNoAccount">Don't have an account yet ?</p>
+          <p
+            className="LoginNoAccount LoginNoAccountBlue"
+            onClick={() => navigate("/signup")}
+          >
+            Sign up
+          </p>
+        </div>
       </form>
     </div>
   );

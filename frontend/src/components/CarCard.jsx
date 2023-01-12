@@ -2,6 +2,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useFilter } from "../contexts/filterContext";
 import "./carCard.scss";
 import carIcon from "../assets/icons/car.png";
 import companyIcon from "../assets/icons/companyIcon.png";
@@ -9,9 +11,17 @@ import Button from "./Button";
 
 function CarCard({ car, carPic }) {
   const [big, setBig] = useState(false);
+  const { setActualCar } = useFilter();
+  const navigate = useNavigate();
   const expend = () => {
     setBig(!big);
   };
+
+  const handleLogin = () => {
+    setActualCar(car);
+    navigate("/login");
+  };
+
   return (
     <div onClick={expend} className={big ? "carCard--big" : "carCard"}>
       <img
@@ -38,7 +48,12 @@ function CarCard({ car, carPic }) {
         <span className="carCar__fuel">Fuel: {car.fuel}</span>
         <span className="carCar__seats">Seats: {car.number_of_seats}</span>
       </div>
-      <Button className="btn" type="button" value="Book now" />
+      <Button
+        className="btn"
+        type="button"
+        value="Book now"
+        handle={handleLogin}
+      />
     </div>
   );
 }

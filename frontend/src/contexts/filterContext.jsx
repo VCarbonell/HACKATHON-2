@@ -11,14 +11,17 @@ export function FilterProvider({ children }) {
   const [filter, setFilter] = useState({});
   const [filterList, setFilterList] = useState();
   const [queryFilter, setQueryFilter] = useState("");
-
+  const [actualCar, setActualCar] = useState();
   useEffect(() => {
     if (filter) {
       const temp = [];
       for (const key in filter) {
-        temp.push(`${[key]}=${filter[key]}`);
+        if (key !== "start_date" && key !== "end_date") {
+          temp.push(`${[key]}=${filter[key]}`);
+        }
       }
       setFilterList(temp);
+      setQueryFilter("");
     }
   }, [filter]);
 
@@ -35,9 +38,17 @@ export function FilterProvider({ children }) {
       setQueryFilter(temp.join(""));
     }
   }, [filterList]);
-
   return (
-    <Provider value={{ filter, setFilter, queryFilter, setQueryFilter }}>
+    <Provider
+      value={{
+        filter,
+        setFilter,
+        queryFilter,
+        setQueryFilter,
+        actualCar,
+        setActualCar,
+      }}
+    >
       {children}
     </Provider>
   );

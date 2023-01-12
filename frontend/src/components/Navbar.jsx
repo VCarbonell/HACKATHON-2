@@ -15,9 +15,11 @@ function Navbar() {
             <img src={home} alt="" className="navbar__icons" />
           </li>
         </NavLink>
-        <li className="navbar__items">
-          <img src={calendar} alt="" className="navbar__icons" />
-        </li>
+        <NavLink to="/reservation">
+          <li className="navbar__items">
+            <img src={calendar} alt="" className="navbar__icons" />
+          </li>
+        </NavLink>
         <NavLink to="/login">
           <li className="navbar__items small">
             <img src={account} alt="" className="navbar__icons" />

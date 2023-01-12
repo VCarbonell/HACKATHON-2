@@ -17,7 +17,6 @@ function SignUp() {
     adress: "",
     password: "",
     passwordConfirm: "",
-    company_code: "",
   });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -147,15 +146,6 @@ function SignUp() {
             id="showConfirmPassword"
           />
         </div>
-        <input
-          className="mainInput"
-          type="text"
-          id="company_code"
-          name="company_code"
-          value={formData.company_code}
-          onChange={handleChange}
-          placeholder="Partner company code (optional)"
-        />
         <p className="SignUpErrorMessage">{error}</p>
         <Button value="SIGN UP" handle={handleSubmit} className="btn" />
         <p className="SignUpGoLogin">

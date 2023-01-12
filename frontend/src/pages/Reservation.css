@@ -1,5 +1,9 @@
 @import "../App.css";
 
+.Reservation {
+  background-color: var(--black);
+}
+
 .ReservationsContainer {
   margin-top: 17.5vh;
   display: flex;
