@@ -50,7 +50,7 @@ function CarCard({ carPic, car }) {
         <span className="carCar__fuel">Fuel: {car.fuel}</span>
         <span className="carCar__seats">Seats: {car.number_of_seats}</span>
       </div>
-      <Button className="btn" type="button" value="Book now" />
+      {/* <Button className="btn" type="button" value="Book now" /> */}
     </div>
   );
 }

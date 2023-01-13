@@ -5,6 +5,7 @@ import { useUser } from "../contexts/userContext";
 import "./companyLogin.scss";
 import Button from "@components/Button";
 import logo from "@assets/icons/logo_orange.png";
+import NavbarCompany from "@components/NavbarCompany";
 
 function CompanyLogin() {
   const { setUserInfo } = useUser();
@@ -40,7 +41,7 @@ function CompanyLogin() {
           if (location.state) {
             return navigate(location.state);
           }
-          navigate("/");
+          navigate("/companycar");
         }
       })
       .catch((error) => {
@@ -88,7 +89,7 @@ function CompanyLogin() {
         {/* */}
 
         {email.includes("@") && password.length > 8 ? (
-          <Button className="btn" type="submit" value="login" />
+          <Button className="btnComp" type="submit" value="login" />
         ) : (
           <button
             style={{
@@ -104,6 +105,7 @@ function CompanyLogin() {
           </button>
         )}
       </form>
+      <NavbarCompany />
     </div>
   );
 }

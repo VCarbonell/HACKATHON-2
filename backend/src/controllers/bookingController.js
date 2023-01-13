@@ -49,7 +49,7 @@ const bookingController = {
 
     transporter.sendMail(data, (error, info) => {
       if (error) {
-        console.warn(`Error occurred. ${error.message}`);
+        console.warn(`Error occurred in booking confirmation. ${error.message}`);
         return process.exit(1);
       }
 

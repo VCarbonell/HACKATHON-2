@@ -22,6 +22,7 @@ import AddCar from "@pages/addCar";
 import CompanyCar from "@pages/CompanyCar";
 import CompanyLogin from "@pages/CompanyLogin";
 import Calendrier from "@components/Calendrier";
+import NavbarCompany from "@components/NavbarCompany";
 
 function App() {
   return (

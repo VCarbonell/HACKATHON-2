@@ -22,7 +22,7 @@
     text-align: start;
     font-family: $font;
     font-weight: 800;
-    padding: 1rem 5rem 0 1.5rem ;
+    padding: 1rem 5rem 0 1.5rem;
   }
   &__logo {
     position: fixed;
@@ -31,5 +31,17 @@
     transform: translateX(-50%);
     width: 51vw;
     height: auto;
+  }
+  .home__proLogIn {
+    position: absolute;
+    bottom: 18vh;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    border-radius: 10rem;
+    padding: 1rem 2rem;
+    background-color: #1e1e1e;
+    font-family: $font;
+    font-weight: 100;
   }
 }
