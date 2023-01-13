@@ -192,35 +192,45 @@ function FilterNav() {
             <button
               name="type"
               onClick={handleClick}
-              className={"filterNav__btn"}
+              className={`filterNav__btn ${
+                formData.type === "Sedan" ? "active" : ""
+              }`}
             >
               Sedan
             </button>
             <button
               name="type"
               onClick={handleClick}
-              className={"filterNav__btn"}
+              className={`filterNav__btn ${
+                formData.type === "Convertible" ? "active" : ""
+              }`}
             >
               Convertible
             </button>
             <button
               name="type"
               onClick={handleClick}
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.type === "SUV" ? "active" : ""
+              }`}
             >
               SUV
             </button>
             <button
               name="type"
               onClick={handleClick}
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.type === "Truck" ? "active" : ""
+              }`}
             >
               Truck
             </button>
             <button
               name="type"
               onClick={handleClick}
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.type === "Coupe" ? "active" : ""
+              }`}
             >
               Coupe
             </button>
@@ -246,21 +256,27 @@ function FilterNav() {
             <button
               onClick={handleClick}
               name="fuel"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.fuel === "Gasoline" ? "active" : ""
+              }`}
             >
-              gasoline
+              Gasoline
             </button>
             <button
               onClick={handleClick}
               name="fuel"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.fuel === "Electric" ? "active" : ""
+              }`}
             >
-              electric
+              Electric
             </button>
             <button
               onClick={handleClick}
               name="fuel"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.fuel === "Diesel" ? "active" : ""
+              }`}
             >
               Diesel
             </button>
@@ -272,35 +288,45 @@ function FilterNav() {
             <button
               onClick={handleClick}
               name="seats"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.seats === "4" ? "active" : ""
+              }`}
             >
               4
             </button>
             <button
               onClick={handleClick}
               name="seats"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.seats === "5" ? "active" : ""
+              }`}
             >
               5
             </button>
             <button
               onClick={handleClick}
               name="seats"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.seats === "6" ? "active" : ""
+              }`}
             >
               6
             </button>
             <button
               onClick={handleClick}
               name="seats"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.seats === "7" ? "active" : ""
+              }`}
             >
               7
             </button>
             <button
               onClick={handleClick}
               name="seats"
-              className="filterNav__btn"
+              className={`filterNav__btn ${
+                formData.seats === "8" ? "active" : ""
+              }`}
             >
               8
             </button>

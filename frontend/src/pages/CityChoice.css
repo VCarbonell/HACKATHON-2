@@ -14,11 +14,14 @@
   padding-left: 10vw;
   padding-right: 10vw;
   line-height: 1.2rem;
+  font-weight: 200;
 }
 
-.ExplicationsQuestion, .Explication {
+.ExplicationsQuestion,
+.Explication {
   font-family: var(--font);
-  font-size: 4vw;
+  font-size: 1.3rem;
+  font-weight: 200;
 }
 
 .ExplicationsQuestion {
@@ -27,7 +30,8 @@
 }
 
 .Explication {
-  color: white;
+  color: rgb(230, 230, 230);
+  font-weight: 200;
 }
 
 .CityChoiceInput {
@@ -42,7 +46,7 @@
   width: 7vw;
   position: absolute;
   z-index: 5;
-  top: 35vh;
+  top: 38%;
   left: 80vw;
 }
 

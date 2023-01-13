@@ -10,6 +10,6 @@ const {
 const authorization = require("../helpers/authentication");
 
 bookingRouter.get("/:id", getBookingByUser);
-bookingRouter.post("/new", addBooking, bookingConfirmation);
+bookingRouter.post("/new", addBooking, bookingConfirmation); 
 
 module.exports = bookingRouter;

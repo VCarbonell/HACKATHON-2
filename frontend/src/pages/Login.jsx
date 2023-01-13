@@ -48,7 +48,7 @@ function Login() {
           if (location.state) {
             return navigate(location.state);
           }
-          navigate("/");
+          navigate("/booking");
         }
       })
       .catch((err) => {
@@ -95,12 +95,7 @@ function Login() {
         ) : undefined}
         {/* */}
         {email.includes("@") && password.length > 8 ? (
-          <Button
-            className="btn"
-            type="submit"
-            value="login"
-            handle={() => navigate("/booking")}
-          />
+          <Button className="btn" type="submit" value="login" />
         ) : (
           <button disabled className="btn--disabled">
             Login
