@@ -1,12 +1,20 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable import/no-unresolved */
 import { React, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./signUp.scss";
-import axios from "axios";
-import Navbar from "@components/Navbar";
+import "./SignUp.css";
+import api from "@services/api";
+import Button from "@components/Button";
+import logo from "@assets/icons/logo.png";
 
 function SignUp() {
   const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
     email: "",
+    licence_number: "",
+    adress: "",
     password: "",
     passwordConfirm: "",
   });
@@ -36,12 +44,17 @@ function SignUp() {
   }, [formData]);
   const handleSubmit = (event) => {
     if (error === "") {
-      axios
+      api
         .post(
-          "http://localhost:8000/api/users/newClient",
+          "/users/newClient",
           {
+            firstname: formData.firstname,
+            lastname: formData.lastname,
             email: formData.email,
+            licence_number: formData.licence_number,
+            adress: formData.adress,
             password: formData.password,
+            company_code: formData.company_code,
           },
           { withCredentials: true }
         )
@@ -55,73 +68,93 @@ function SignUp() {
     event.preventDefault();
   };
   return (
-    <div className="">
-      <form onSubmit={handleSubmit}>
-        <label className="" htmlFor="Email">
-          Email:
+    <div className="SignUp">
+      <img src={logo} alt="logo" className="SignUpLogo" />
+      <div className="SignUpForm">
+        <input
+          className="mainInput"
+          id="firstname"
+          name="firstname"
+          value={formData.firstname}
+          onChange={handleChange}
+          placeholder="Firstname"
+        />
+        <input
+          className="mainInput"
+          id="lastname"
+          name="lastname"
+          value={formData.lastname}
+          onChange={handleChange}
+          placeholder="Lastname"
+        />
+        <input
+          className="mainInput"
+          type="text"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Email"
+        />
+        <input
+          className="mainInput"
+          type="text"
+          id="licence_number"
+          name="licence_number"
+          value={formData.licence_number}
+          onChange={handleChange}
+          placeholder="Licence number"
+        />
+        <input
+          className="mainInput"
+          type="text"
+          id="adress"
+          name="adress"
+          value={formData.adress}
+          onChange={handleChange}
+          placeholder="Adress"
+        />
+        <div className="">
           <input
-            className=""
-            type="text"
-            id="email"
-            name="email"
-            value={formData.email}
+            className="mainInput"
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            value={formData.password}
             onChange={handleChange}
+            placeholder="Password"
           />
-          &nbsp;
-        </label>
-        <label className="" htmlFor="password">
-          Password:
-          <div className="">
-            <input
-              className=""
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-            />{" "}
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className=""
-            >
-              {showPassword ? "don't show" : "show"}
-            </button>
-          </div>
-          &nbsp;
-        </label>
-        <label className="" htmlFor="password-confirm">
-          Confirm password:
-          <div className="">
-            <input
-              className=""
-              type={showConfirmPassword ? "text" : "password"}
-              id="password-confirm"
-              name="passwordConfirm"
-              value={formData.passwordConfirm}
-              onChange={handleChange}
-            />
-            <button
-              type="button"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className=""
-            >
-              {showConfirmPassword ? "don't show" : "show"}
-            </button>
-          </div>
-          &nbsp;
-        </label>
-        <p className="">{error}</p>
-        <input className="" type="submit" value="Create account" />
-      </form>
-      <p className="">
-        Already have an account?{" "}
-        <span className="">
+          <div
+            onClick={() => setShowPassword(!showPassword)}
+            className={showPassword ? "showPass" : "hidePass"}
+            id="showPassword"
+          />
+        </div>
+        <div className="">
+          <input
+            className="mainInput"
+            type={showConfirmPassword ? "text" : "password"}
+            id="password-confirm"
+            name="passwordConfirm"
+            value={formData.passwordConfirm}
+            onChange={handleChange}
+            placeholder="Confirm your password"
+          />
+          <div
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            className={showConfirmPassword ? "showPass" : "hidePass"}
+            id="showConfirmPassword"
+          />
+        </div>
+        <p className="SignUpErrorMessage">{error}</p>
+        <Button value="SIGN UP" handle={handleSubmit} className="btn" />
+        <p className="SignUpGoLogin">
+          Already have an account?{" "}
           <Link to="/login" className="">
             Login
           </Link>
-        </span>
-      </p>
+        </p>
+      </div>
     </div>
   );
 }

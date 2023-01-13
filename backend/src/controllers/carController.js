@@ -4,6 +4,14 @@ const carController = {
   getCars: (req, res, next) => {
     const where = [];
 
+    if (req.query.company != null) {
+      where.push({
+        column: "company.name_company",
+        value: req.query.company,
+        operator: "=",
+      });
+    }
+
     if (req.query.city != null) {
       where.push({
         column: "city_id",
@@ -22,7 +30,7 @@ const carController = {
 
     if (req.query.type != null) {
       where.push({
-        column: "type_id",
+        column: "type_name",
         value: req.query.type,
         operator: "=",
       });
@@ -84,6 +92,12 @@ const carController = {
       })
       .catch((err) => next(err));
   },
+  getAllMakes : (req,res,next) => {
+    carModel
+    .getAllMakes()
+    .then((result)=> res.status(200).send(result))
+    .catch((err)=> next(err))
+  }
 };
 
 module.exports = carController;

@@ -2,7 +2,7 @@
 
 .CityChoiceResult {
   position: absolute;
-  top: 28vh;
+  top: 40vh;
   width: 80vw;
   height: fit-content;
   max-height: 40vh;
@@ -24,6 +24,7 @@
   font-size: 5.5vw;
   color: white;
   opacity: 0.42;
+  cursor: pointer;
 }
 
 #CityChoiceActualSearch {

@@ -1,14 +1,21 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable consistent-return */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable react/button-has-type */
+/* eslint-disable no-nested-ternary */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-return-assign */
+import React, { useState } from "react";
 import axios from "axios";
 import api from "@services/api";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
+import Button from "@components/Button";
 import { useUser } from "../contexts/userContext";
 import "./login.scss";
 import logo from "../assets/icons/logo.png";
-import Button from "@components/Button";
 
 function Login() {
-  const { userInfo, setUserInfo } = useUser();
+  const { setUserInfo } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   axios.defaults.withCredentials = true;
@@ -24,7 +31,7 @@ function Login() {
     formData.forEach((value, key) => (formDataObj[key] = value));
 
     api
-      .post("users/login", {
+      .post("/users/login", {
         email: formDataObj.email,
         password: formDataObj.password,
       })
@@ -41,12 +48,12 @@ function Login() {
           if (location.state) {
             return navigate(location.state);
           }
-          navigate("/");
+          navigate("/booking");
         }
       })
-      .catch((error) => {
-        console.log(error);
-        setError(error.request.status);
+      .catch((err) => {
+        console.error(err);
+        setError(err.request.status);
       });
   };
 
@@ -94,6 +101,15 @@ function Login() {
             Login
           </button>
         )}
+        <div className="LoginNoAccountContainer">
+          <p className="LoginNoAccount">Don't have an account yet ?</p>
+          <p
+            className="LoginNoAccount LoginNoAccountBlue"
+            onClick={() => navigate("/signup")}
+          >
+            Sign up
+          </p>
+        </div>
       </form>
     </div>
   );

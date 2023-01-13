@@ -11,7 +11,7 @@ const app = express();
 // use some application-level middlewares
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "http://192.168.1.94:3000",
+    origin: process.env.FRONTEND_URL ?? "http://192.168.1.30:3000",
     optionsSuccessStatus: 200,
     credentials: true,
   })

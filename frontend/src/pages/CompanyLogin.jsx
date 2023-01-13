@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useUser } from "../contexts/userContext";
-import "./login.scss";
+import "./companyLogin.scss";
+import Button from "@components/Button";
+import logo from "@assets/icons/logo_orange.png";
+import NavbarCompany from "@components/NavbarCompany";
+import api from "@services/api";
 
 function CompanyLogin() {
   const { setUserInfo } = useUser();
@@ -20,8 +24,8 @@ function CompanyLogin() {
     const formDataObj = {};
     formData.forEach((value, key) => (formDataObj[key] = value));
 
-    axios
-      .post("http://localhost:8000/api/company/login", {
+    api
+      .post("/company/login", {
         email: formDataObj.email,
         password: formDataObj.password,
       })
@@ -38,7 +42,7 @@ function CompanyLogin() {
           if (location.state) {
             return navigate(location.state);
           }
-          navigate("/");
+          navigate("/companycar");
         }
       })
       .catch((error) => {
@@ -55,13 +59,11 @@ function CompanyLogin() {
   };
   return (
     <div className="login">
-      <h2>login page</h2>
+      <img className="login__logoOrange" src={logo} alt="" />
       <form className="login__form" onSubmit={logIn}>
         <input
           onChange={checkEmail}
-          className={
-            email.includes("@") ? "login__input--valid" : "login__input"
-          }
+          className="mainInput"
           placeholder="Email"
           type="email"
           id="email"
@@ -69,9 +71,7 @@ function CompanyLogin() {
         />
         <input
           onChange={checkPassword}
-          className={
-            password.length < 8 ? "login__input" : "login__input--valid"
-          }
+          className="mainInput"
           placeholder="Password"
           type="password"
           name="password"
@@ -82,17 +82,31 @@ function CompanyLogin() {
         ) : error === 401 ? (
           <span className="login__error">
             We don't know each others yet, please{" "}
-            <NavLink to="/signin">
+            <NavLink to="/signup">
               <p className="login__error--link login__error--link">Sign up</p>
             </NavLink>
           </span>
         ) : undefined}
         {/* */}
 
-        <button className="login__button" type="submit">
-          LOGIN
-        </button>
+        {email.includes("@") && password.length > 8 ? (
+          <Button className="btnComp" type="submit" value="login" />
+        ) : (
+          <button
+            style={{
+              backgroundColor:
+                !email.includes("@") && !password.length > 8
+                  ? "#ff9900"
+                  : "#fdba56",
+            }}
+            disabled
+            className="btn--disabled"
+          >
+            Login
+          </button>
+        )}
       </form>
+      <NavbarCompany />
     </div>
   );
 }

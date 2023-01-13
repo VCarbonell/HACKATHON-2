@@ -1,0 +1,60 @@
+@import "../App.css";
+
+.PaymentCard {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4vh;
+}
+
+.PaymentCardContainer {
+  width: 90vw;
+  height: 20vh;
+  background-color: white;
+  border-radius: 4vw 0 0 4vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2vw;
+  padding-top: 3vw;
+  gap: 4vw;
+}
+
+.PaymentCardBigInput {
+  border: none;
+  width: 89%;
+  font-family: var(--font);
+  color: var(--black);
+  font-size: 4.5vw;
+  border-bottom: 0.5vw solid var(--black);
+  outline: none;
+  margin-left: 1.5vw;
+}
+
+.PaymentCardLittleInput {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 1.5vw;
+}
+
+.PaymentCardLittleInput input {
+  border: none;
+  width: 27.5%;
+  font-family: var(--font);
+  color: var(--black);
+  font-size: 4.5vw;
+  border-bottom: 0.5vw solid var(--black);
+  outline: none;
+}
+
+.PaymentCardLogo {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+}
+
+.PaymentCardLogo img {
+  width: 10vw;
+  margin-left: 1vw;
+}

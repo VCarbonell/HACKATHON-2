@@ -2,15 +2,41 @@
 
 .CityChoice {
   width: 100vw;
-  height: 89vh;
+  height: 100vh;
   background-color: var(--black);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+.Explications {
+  margin-top: 15vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
+  line-height: 1.2rem;
+  font-weight: 200;
+}
+
+.ExplicationsQuestion,
+.Explication {
+  font-family: var(--font);
+  font-size: 1.3rem;
+  font-weight: 200;
+}
+
+.ExplicationsQuestion {
+  color: var(--blue);
+  margin-bottom: 1vh;
+}
+
+.Explication {
+  color: rgb(230, 230, 230);
+  font-weight: 200;
+}
+
 .CityChoiceInput {
-  margin-top: 25vh;
+  margin-top: 10vh;
+  font-family: var(--font);
 }
 
 .CityChoiceLocation {
@@ -20,10 +46,10 @@
   width: 7vw;
   position: absolute;
   z-index: 5;
-  top: 25vh;
+  top: 38%;
   left: 80vw;
 }
 
-.btn {
+.CityChoice .btn {
   bottom: 15%;
 }

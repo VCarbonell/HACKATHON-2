@@ -1,10 +1,11 @@
 const db = require("../../config");
 
 const getCars = (where) => {
-  const initialSql = `SELECT car.*, city.name, city.department, city.zipcode, make_name as modele, type_name FROM car 
+  const initialSql = `SELECT car.*, city.name, city.department, city.zipcode, make_name as modele, type_name, company.name_company as company FROM car 
                         JOIN city ON city.id=city_id
                         JOIN make ON make.id=make_id
                         JOIN type ON type.id=type_id
+                        JOIN company ON company.id=company_id
                         WHERE avalaible = 1`;
   if (where.length > 0) {
     return db
@@ -44,10 +45,17 @@ const deleteCar = (carId) => {
     .query("DELETE FROM car WHERE id = ? ;", [carId])
     .then(([res]) => res);
 };
+const getAllMakes = () => {
+  return db
+  .promise()
+  .query('SELECT * from make')
+  .then(([res])=> res)
 
+}
 module.exports = {
   getCars,
   addCar,
   updateCar,
   deleteCar,
+  getAllMakes 
 };

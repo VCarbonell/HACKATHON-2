@@ -3,6 +3,7 @@
 /* eslint-disable import/no-unresolved */
 import Button from "@components/Button";
 import CityChoiceResult from "@components/CityChoiceResult";
+import Header from "@components/Header";
 import api from "@services/api";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -16,7 +17,6 @@ function CityChoice() {
   const [actualSearch, setActualSearch] = useState();
   const { filter, setFilter } = useFilter();
   const navigate = useNavigate();
-
   const handleResearch = (name) => {
     setActualSearch(name);
     setAllResult();
@@ -25,7 +25,6 @@ function CityChoice() {
       .then((res) => setFilter({ ...filter, city: res.data[0].id }))
       .catch((err) => console.error(err));
   };
-
   const getCurrentPosition = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -83,7 +82,7 @@ function CityChoice() {
   };
 
   const goToNext = () => {
-    navigate("/login");
+    navigate("/calendar");
   };
 
   useEffect(() => {
@@ -95,10 +94,17 @@ function CityChoice() {
 
   return (
     <div className="CityChoice">
+      <Header back value="Choose your city" />
+      <div className="Explications">
+        <p className="ExplicationsQuestion">What is Prime Ride ?</p>
+        <p className="Explication">
+          Prime Ride allows you to rent company cars at competitive prices.
+        </p>
+      </div>
       <input
         type="text"
         className="mainInput CityChoiceInput"
-        placeholder="City"
+        placeholder="Drive from..."
         onChange={handleFilter}
         value={actualSearch}
       />

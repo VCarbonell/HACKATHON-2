@@ -10,9 +10,17 @@ function Home() {
     <div className="home">
       <img className="home__logo" src={logo} alt="logo" />
       <h1 className="home__title">go for a ride.</h1>
+
       <NavLink to="/city">
         <Button className="btn" type="button" value="GET STARTED" />
       </NavLink>
+
+      <div className="home__proLogIn">
+        <NavLink to="/companylogin">
+          {" "}
+          Are you an entreprise ? Click here
+        </NavLink>
+      </div>
     </div>
   );
 }

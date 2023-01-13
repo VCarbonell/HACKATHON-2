@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import typing from "../assets/icons/typing.png";
 import { useUser } from "../contexts/userContext";
 import "./Chat.css";
 
@@ -6,7 +7,7 @@ function Chat({ socket, username, room }) {
   const [currentMsg, setCurrentMsg] = useState();
   const [msgs, setMsgs] = useState([]);
   const [typing, setTyping] = useState(false);
-  const [typingDisplay, setTypingDisplay] = useState("");
+  const [typingDisplay, setTypingDisplay] = useState(false);
   useEffect(() => {
     // eslint-disable-next-line react/prop-types
     socket.emit("typing", { typing, user: username });
@@ -38,17 +39,15 @@ function Chat({ socket, username, room }) {
     // eslint-disable-next-line react/prop-types
     socket.on("display", (data) => {
       if (data.typing === true && data.user !== username) {
-        setTypingDisplay("User is typing...");
+        setTypingDisplay(true);
       } else {
-        setTypingDisplay("");
+        setTypingDisplay(false);
       }
     });
   }, [socket]);
   return (
     <div className="chat__content">
-      <div className="chat__header">
-        <p>AMAZON</p>
-      </div>
+      <div className="chat__header" />
       <div className="chat__body">
         {msgs &&
           msgs.map((el) => {
@@ -68,7 +67,9 @@ function Chat({ socket, username, room }) {
               </div>
             );
           })}
-          <p>{typingDisplay}</p>
+        {typingDisplay && (
+          <img src="./src/assets/icons/typing.png" style={{ width: "70px" }} />
+        )}
       </div>
       <div className="chat__footer">
         <input

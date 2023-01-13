@@ -6,12 +6,6 @@ const findAll = () => {
     .query("SELECT * FROM city;")
     .then(([res]) => res);
 };
-const findOne = (id) => {
-  return db
-    .promise()
-    .query("SELECT * from city WHERE id = ?", [id])
-    .then(([res]) => res);
-};
 
 const findByName = (name) => {
   return db
@@ -23,6 +17,5 @@ const findByName = (name) => {
 
 module.exports = {
   findAll,
-  findOne,
   findByName,
 };

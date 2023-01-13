@@ -1,7 +1,8 @@
 import { React, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./signUp.scss";
 import axios from "axios";
+import api from "@services/api";
+import NavbarCompany from "@components/NavbarCompany";
 
 function CompanySignUp() {
   const [formData, setFormData] = useState({
@@ -35,9 +36,9 @@ function CompanySignUp() {
   }, [formData]);
   const handleSubmit = (event) => {
     if (error === "") {
-      axios
+      api
         .post(
-          "http://localhost:8000/api/company/newCompany",
+          "/company/newCompany",
           {
             email: formData.email,
             password: formData.password,
@@ -121,6 +122,7 @@ function CompanySignUp() {
           </Link>
         </span>
       </p>
+      <NavbarCompany />
     </div>
   );
 }

@@ -23,9 +23,9 @@ const bookingController = {
       .catch((err) => next(err));
   },
   getBookingByUser: (req, res, next) => {
-    const id = req.userId;
+    const { id } = req.params;
     bookingModel
-      .findBookingByUserId(id)
+      .findBookingByUser(id)
       .then((result) => {
         if (result.length === 0) {
           res.sendStatus(404);
@@ -49,7 +49,7 @@ const bookingController = {
 
     transporter.sendMail(data, (error, info) => {
       if (error) {
-        console.warn(`Error occurred. ${error.message}`);
+        console.warn(`Error occurred in booking confirmation. ${error.message}`);
         return process.exit(1);
       }
 
