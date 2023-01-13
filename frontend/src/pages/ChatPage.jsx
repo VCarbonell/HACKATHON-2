@@ -5,7 +5,7 @@ import { useUser } from "../contexts/userContext";
 import { useChat } from "../contexts/chatContext";
 import Header from "@components/Header";
 
-const socket = io.connect("http://192.168.1.30:8000");
+const socket = io.connect("http://localhost:8000");
 
 function ChatPage() {
   const [username, setUsername] = useState("");

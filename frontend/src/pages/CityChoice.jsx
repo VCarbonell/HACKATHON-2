@@ -38,6 +38,7 @@ function CityChoice() {
       .then((position) => {
         lat = position.coords.latitude;
         long = position.coords.longitude;
+        console.log(position)
         axios
           .get(
             `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${long}&key=AIzaSyAyLI3TwyfRzV5Ei-5tRniIJ6k2eHhSgHM`

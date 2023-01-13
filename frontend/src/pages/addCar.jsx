@@ -84,7 +84,7 @@ const AddCar = () => {
         {/* <button onClick={handleSubmit}>testYOLO</button> */}
         <select name="make" id="" onChange={handleMake}>
           <option value="">Select a make</option>
-          <option value="Focus">Ford</option>
+          <option value="208 GTi">Peugeot</option>
           <option value="C-Class">Mercedes</option>
           <option value="Zoe">Renault</option>
           <option value="Model Y Performance">Tesla</option>
