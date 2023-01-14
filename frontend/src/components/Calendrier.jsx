@@ -47,7 +47,7 @@ function Calendrier() {
       <div className="btnheure">
         <div className="valeur">
           <img className="imgbtnclock" src={timer} alt="zz" />
-          Start at {range}h am/pm
+          Start at {range}h
         </div>
         <input
           onChange={handleChange}
@@ -62,7 +62,7 @@ function Calendrier() {
         />
         <div className="valeur">
           <img className="imgbtnclock" src={timer} alt="zz" />
-          End at {rangeTow}h am/pm
+          End at {rangeTow}h
         </div>
         <input
           onChange={handleChangeTow}
