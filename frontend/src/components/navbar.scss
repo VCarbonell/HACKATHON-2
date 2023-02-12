@@ -1,0 +1,24 @@
+@import "../style.scss";
+
+.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 9vh;
+  background-color: #fbfbfb;
+  z-index: 100;
+  &__list {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__icons {
+    width: 8vw;
+    height: auto;
+  }
+  .small img {
+    width: 5vw;
+  }
+}

@@ -1,36 +1,28 @@
-import Counter from "../components/Counter";
-import logo from "../assets/logo.svg";
+/* eslint-disable import/no-unresolved */
+import React, { useEffect, useState } from "react";
+import Button from "@components/button";
+import { NavLink } from "react-router-dom";
+import "./home.scss";
+import logo from "../assets/icons/logo.png";
 
-export default function Home() {
+function Home() {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
+    <div className="home">
+      <img className="home__logo" src={logo} alt="logo" />
+      <h1 className="home__title">go for a ride.</h1>
 
-      <Counter />
+      <NavLink to="/city">
+        <Button className="btn" type="button" value="GET STARTED" />
+      </NavLink>
 
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+      <div className="home__proLogIn">
+        <NavLink to="/companylogin">
+          {" "}
+          Are you an entreprise ? Click here
+        </NavLink>
+      </div>
+    </div>
   );
 }
+
+export default Home;

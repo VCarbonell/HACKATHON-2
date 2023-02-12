@@ -1,0 +1,78 @@
+@import "../App.css";
+
+.Confirmation {
+  background-color: var(--black);
+  height: 90vh;
+}
+
+.ConfirmationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 7vw;
+}
+
+.ConfirmationCheck {
+  width: 30vw;
+  margin-top: 5vh;
+}
+
+.ConfirmationContainer h1 {
+  margin-top: 15vh;
+  font-size: 8vw;
+  line-height: 11vw;
+  font-weight: 600;
+  width: 80vw;
+  letter-spacing: 0.4vw;
+  color: white;
+  font-family: var(--font);
+}
+
+.ConfirmationContainer p {
+  color: white;
+  font-family: var(--font);
+}
+
+.ConfirmationContainer .btn {
+  bottom: 15%;
+}
+
+.ConfirmationCarousel {
+  display: flex;
+  overflow-x: scroll;
+  width: 95vw;
+  padding-left: 5vw;
+}
+
+.ConfirmationCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.CCOneElement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5vw;
+}
+
+.CCOneElement img {
+  width: 30vw;
+}
+
+.CCOneElement p {
+  font-family: var(--font);
+  font-size: 5vw;
+  width: 50vw;
+  margin-bottom: 1vw;
+}
+
+#CCAmazonLogo {
+  width: 30vw;
+}
+
+#ConfirmationPub {
+  color: var(--blue);
+  margin-top: 7vh;
+  font-size: 5vw;
+}
